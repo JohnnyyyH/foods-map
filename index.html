@@ -383,8 +383,10 @@ function pinHTML(d){
 }
 function zoomClass(z){$("map").classList.toggle("far",z<13);$("map").classList.toggle("near",z>=15);declutter()}
 // Like Google Maps: show names when zoomed in, but hide a label that would overlap a better-rated one.
-let dcT=0;
-function declutter(){clearTimeout(dcT);dcT=setTimeout(()=>{
+let dcT=0,zooming=false;
+// While the map animates a zoom, every pin is a small dot so nothing piles up; full pills come back once it settles.
+function shrinkAll(){zooming=true;clearTimeout(dcT);document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
+function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(()=>{
   // Like Google Maps: the best-rated pins get a full pill; a pin whose pill would overlap a better one shrinks to a dot.
   const mapEl=$("map");
   const pins=[...mapEl.querySelectorAll(".pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.el.offsetParent);
@@ -414,7 +416,7 @@ function leafletMap(){
       const n=document.createElement("div");n.className="tilenote";n.textContent="这个预览环境加载不了底图，先用区域名代替；在正式网址上会显示完整地图。";$("map").appendChild(n);
       SUBURBS.forEach(([s,lat,lng])=>L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:"leaflet-div-icon",html:'<span class="sub-label">'+s+'</span>',iconSize:[0,0]})}).addTo(map));});}
   tiles.on("tileload",()=>{loaded=true});
-  map.on("zoomend",()=>zoomClass(map.getZoom()));map.on("moveend",declutter);zoomClass(map.getZoom());
+  map.on("zoomstart",shrinkAll);map.on("zoomend",()=>{zooming=false;zoomClass(map.getZoom())});map.on("moveend",declutter);zoomClass(map.getZoom());
   const mk={},icon=d=>L.divIcon({className:"pin-wrap",iconSize:[0,0],html:pinHTML(d)});
   return {
     add(d){const m=L.marker([d.lat,d.lng],{icon:icon(d),title:d.name,riseOnHover:true});m.on("click",()=>open(d.id,isPhone()));mk[d.id]=m;m.addTo(map)},
@@ -446,7 +448,7 @@ async function googleMap(){
   }
   const pins=new Pins();pins.setMap(map);
   const redraw=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>pins.draw())};
-  map.addListener("zoom_changed",()=>zoomClass(map.getZoom()));map.addListener("idle",declutter);zoomClass(14);
+  map.addListener("zoom_changed",()=>{shrinkAll();zoomClass(map.getZoom())});map.addListener("idle",()=>{zooming=false;declutter()});zoomClass(14);
   return {
     add(d){const w=document.createElement("div");w.className="gpin";w.innerHTML=pinHTML(d);w.title=d.name;
       OverlayView.preventMapHitsAndGesturesFrom(w);w.addEventListener("click",()=>open(d.id,isPhone()));

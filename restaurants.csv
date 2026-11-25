@@ -1,158 +1,158 @@
-name,original_names,cuisine,area,region,meals,price,score,highlights,lat,lng,confidence,note,status
-Bar Totti's,Bar Totti’s,意大利菜,CBD (The Ivy),市中心 CBD,午餐|晚餐,$$$,4.6,招牌柴火烤面包和意式小食，Merivale 旗下人气意餐，订位难度高,-33.8669,151.2074,确认,,收藏
-Issho Cafe,Issho cafe,甜品/咖啡,Haymarket,中国城/Haymarket,早午餐|下午茶,$$,4.0,日式甜品屋（Tokyo Dessert House），舒芙蕾和抹茶甜点出片,-33.8790,151.2063,确认,Siam Palette 集团旗下,收藏
-Bennie's Cafe Bistro,Bennie’s cafe,咖啡/早午餐,CBD,市中心 CBD,早餐|午餐,$$,4.1,CBD 上班族口碑早午餐店，菜量足,-33.8680,151.2048,较确定,具体门牌未核实，坐标为大致位置,收藏
-Mango Coco,Mango Coco|MANGO COCO,甜品/咖啡,Haymarket（泰国城）,中国城/Haymarket,下午茶|晚餐|宵夜,$,4.1,泰式芒果糯米饭、榴莲冰，开得晚适合饭后甜品,-33.8800,151.2060,确认,另有 Pitt St 分店,收藏
-Umaya,Umaya|UMAYA,日料,CBD（连锁多店）,市中心 CBD,午餐|晚餐,$$,3.7,平价日式定食/寿司连锁，适合工作日快餐,-33.8735,151.2075,较确定,悉尼有多家分店（CBD、Parramatta、Macquarie 等），坐标取 CBD 店附近,收藏
-Oborozuki,Oborozuki,日料,Circular Quay,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.4,法日融合高级日料，楼梯和挑高空间很适合拍照,-33.8617,151.2105,确认,,收藏
-Edition Coffee Roasters,Edition,咖啡/早午餐,Haymarket（Darling Square）,中国城/Haymarket,早餐|早午餐|午餐,$$,4.3,北欧+日式风格咖啡店，鸡蛋三明治和手冲出名,-33.8783,151.2022,较确定,也可能指其他名叫 Edition 的店；按最有名的 Edition Coffee Roasters 处理,收藏
-Porteño,Porteno,拉美菜,Surry Hills,东区内城,晚餐,$$$,4.4,阿根廷炭火烤肉，整只乳猪和羊慢烤，氛围热闹,-33.8853,151.2088,确认,,收藏
-The Brother's Cafe,The Brothers|The brothers,咖啡/早午餐,Darling Harbour,达令港/Pyrmont,早餐|午餐,$$,3.6,达令港边的休闲咖啡简餐,-33.8715,151.2000,猜测,名字太常见，按 Darling Harbour 官网列出的 The Brother's Cafe 猜测,收藏
-Seoul Ria,Seoul Ria,韩餐,CBD 南（Liverpool St 一带）,中国城/Haymarket,午餐|晚餐,$$,3.9,老牌韩式烤肉和韩式家常菜,-33.8775,151.2072,较确定,坐标为大致位置,收藏
-PIÑA,PINA|Pina,咖啡/早午餐,Potts Point,东区内城,早餐|早午餐,$$,4.0,Potts Point 街角咖啡店，早午餐清爽,-33.8715,151.2255,较确定,,收藏
-Auvers Dining,Auvers Dining,咖啡/早午餐,Haymarket（Darling Square）,中国城/Haymarket,早午餐|下午茶|晚餐,$$,4.0,梵高主题装修，网红早午餐和甜品,-33.8778,151.2010,确认,Rhodes Waterside 也有分店,收藏
-The Dose Cafe,THE DOSE|The dose,咖啡/早午餐,The Rocks,环形码头/The Rocks/Barangaroo,早餐|午餐,$$,3.9,The Rocks 里的小咖啡店，逛完岩石区歇脚,-33.8595,151.2088,较确定,,收藏
-Khao Soi Restaurant,khao soi,泰餐,Haymarket,中国城/Haymarket,午餐|晚餐,$,4.1,泰北咖喱面 Khao Soi 专门店，汤底浓郁,-33.8797,151.2066,较确定,,收藏
-Soi Thai on Glebe,Soi Thai,泰餐,Glebe,内西区,午餐|晚餐,$,3.6,社区平价泰餐,-33.8810,151.1850,猜测,也可能是 CBD 的 Soi Arcade 等，按名称最接近的 Soi Thai on Glebe 处理,收藏
-Everyday Sopoong,EverydaySoPoong,韩餐,未确认,位置待确认,午餐|晚餐,$,3.8,韩式小吃/炸鸡类休闲店,,,猜测,AGFG 有收录但位置未核实,收藏
-Haidilao 海底捞,Haidilao,火锅,Haymarket（悉尼多店）,中国城/Haymarket,午餐|晚餐|宵夜,$$$,4.1,服务出名的川味火锅，营业到很晚，适合聚会,-33.8770,151.2035,较确定,悉尼有多家分店，坐标取市区附近,收藏
-Napnap,Napnap,未确认,未确认,位置待确认,,,,,,,猜测,网上没找到明确对应的悉尼门店，请补充,收藏
-WS Espresso,WS Expresso,咖啡/早午餐,未确认,位置待确认,早餐,$,,,,,猜测,原写作 Expresso，没找到明确门店，请补充,收藏
-6HEAD,6 head,牛排/烧烤,The Rocks（Campbells Stores）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.5,海港大桥+歌剧院景观牛排馆，约会和招待朋友首选,-33.8584,151.2103,确认,原写作 6 head,收藏
-Macchiato Wood Fire Pizza & Coffee,macchiato|Macchiato,意大利菜,CBD,市中心 CBD,早餐|午餐|晚餐,$$,3.8,全天营业的意式披萨+咖啡，选择多不踩雷,-33.8755,151.2080,较确定,,收藏
-Bentley Restaurant + Bar,Bentley,现代澳洲菜,CBD,市中心 CBD,午餐|晚餐,$$$$,4.5,帽子级 fine dining，酒单强大,-33.8652,151.2106,确认,,想去
-Bornga Korean BBQ,bornga|Bornga BBQ,韩餐,Haymarket,中国城/Haymarket,午餐|晚餐,$$$,4.0,白钟元旗下韩式烤肉，烤五花和冷面人气高,-33.8810,151.2045,确认,,收藏
-Moku,moku,日料,Darlinghurst,东区内城,晚餐,$$$,4.2,串烧+刺身的日式居酒屋，夜晚氛围好,-33.8780,151.2185,确认,,收藏
-Grana,grana|Grana,意大利菜,Circular Quay（Hinchcliff House）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$,4.4,自磨面粉做手工面，Hinchcliff House 楼上,-33.8625,151.2102,确认,,收藏
-Ennui,ennui|Ennui,法餐,Haymarket（461 Pitt St）,中国城/Haymarket,午餐|晚餐|宵夜,$$$,4.2,复古法式小酒馆+餐厅，老建筑里很有情调,-33.8795,151.2070,确认,,收藏
-Civico 47,Civoco47,意大利菜,Paddington,东区内城,晚餐,$$$,4.3,老建筑里的意式家庭料理，服务暖心,-33.8850,151.2270,确认,原写作 Civoco47,收藏
-Ursula's,Ursula’s,现代澳洲菜,Paddington,东区内城,早午餐|午餐|晚餐,$$$,4.4,Paddington 街角的精致小馆，周末早午餐很受欢迎,-33.8865,151.2320,确认,,收藏
-LANA,LANA,西班牙/地中海,Circular Quay（Hinchcliff House）,环形码头/The Rocks/Barangaroo,晚餐,$$$$,4.3,地中海/西班牙风味炭烤，空间漂亮,-33.8627,151.2104,确认,,收藏
-The Charles Grand Brasserie,The Charles,法餐,CBD,市中心 CBD,午餐|晚餐,$$$,4.3,大气的法式 brasserie，适合商务和庆祝,-33.8690,151.2070,较确定,,收藏
-Quoi Dining,Quoi,现代澳洲菜,Baulkham Hills,西区,晚餐,$$$,4.2,西北区的高口碑精致餐厅，值得专程,-33.7625,150.9930,较确定,,收藏
-Ragazzi,Ragazzi,意大利菜,CBD（Angel Place）,市中心 CBD,午餐|晚餐,$$,4.4,小巷里的手工意面+自然酒，性价比高,-33.8668,151.2078,确认,,收藏
-Prefecture 48,Perfecture 48|Garaku at Prefecture 48,日料,Wynyard,市中心 CBD,午餐|晚餐,$$$$,4.5,六合一日料综合体，含 omakase、铁板烧和酒吧,-33.8657,151.2062,确认,原写作 Perfecture 48；Google 地图里收藏的是其中的 Garaku,收藏
-Paramount Coffee Project,Paramount,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐,$$,4.3,Surry Hills 早午餐名店，咖啡出色,-33.8800,151.2105,确认,,想去
-Daikoku Teppanyaki,"Daikoku|Daikoku Teppanyaki, Concord",日料,Concord,西区,晚餐,$$,3.8,铁板烧表演，适合家庭聚餐,-33.8600,151.1030,确认,Google 地图截图确认是 Concord 店,收藏
-Devon Cafe,Devon,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐|午餐,$$,4.2,亚洲融合早午餐鼻祖之一，创意菜色,-33.8880,151.2110,确认,,收藏
-Bopp & Tone,Bopp & Tone,现代澳洲菜,CBD（Carrington St）,市中心 CBD,午餐|晚餐,$$$,4.2,地中海风味的商务午餐热门地,-33.8668,151.2058,确认,,收藏
-Hurricane's Grill,Hurricanes’s,牛排/烧烤,Darling Harbour,达令港/Pyrmont,午餐|晚餐,$$$,4.0,超大份猪肋排，海港景观,-33.8710,151.1990,较确定,Bondi 也有分店,收藏
-Ellen,Ellen,咖啡/早午餐,Alexandria,南区内城,早餐|早午餐,$$,3.9,Sydney Park 旁的早午餐店,-33.9080,151.1920,较确定,,收藏
-Two Sis & Co,two sis & co,咖啡/早午餐,Pyrmont,达令港/Pyrmont,早餐|早午餐,$$,4.0,Pyrmont 街区小咖啡店，早午餐温馨,-33.8695,151.1955,确认,,收藏
-a'Mare,a’ Mare,意大利菜,Barangaroo（Crown Sydney）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.6,Crown 酒店里的高端意餐，桌边服务+海港景,-33.8612,151.2025,确认,,收藏
-Bessie's,Bassie’s,现代澳洲菜,Surry Hills,东区内城,晚餐,$$$,4.2,复古风情的社区餐厅,-33.8835,151.2125,猜测,原写作 Bassie’s，按名字最接近的 Bessie's 猜测,收藏
-Taste Texture,taste texture,未确认,未确认,位置待确认,,,,,,,猜测,Wanderlog 有收录但信息不足,收藏
-Kobe Wagyu,kobe wagyu,日料,CBD,市中心 CBD,晚餐,$$$,4.0,和牛烧肉/日式烤肉,-33.8720,151.2065,较确定,坐标为大致位置,收藏
-Deux Frères,Deux Freres,西班牙/地中海,Circular Quay,环形码头/The Rocks/Barangaroo,晚餐|宵夜,$$,4.0,L'Entrecôte 团队的 pintxos 小吃吧,-33.8615,151.2098,较确定,,收藏
-The Melting Cheese,Melting Cheese,汉堡/快餐,CBD,市中心 CBD,午餐|晚餐,$$,3.6,汉堡蘸一碗融化芝士，适合打卡拍视频,-33.8770,151.2065,较确定,坐标为大致位置,收藏
-Ho Jiak,Ho Jiak,马来/南洋,Haymarket（另有 Town Hall、Strathfield）,中国城/Haymarket,午餐|晚餐,$$,4.4,马来西亚菜名店，炒粿条和龙虾面必点,-33.8800,151.2032,确认,,收藏
-Myeongdong Korean Restaurant,Myeongdong,韩餐,North Strathfield,西区,午餐|晚餐,$$,4.0,韩式家常菜和烤肉，分量足,-33.8590,151.0890,较确定,Chatswood 也有同名店,收藏
-Sho Sushi,sho sushi,日料,未确认,位置待确认,,,,,,,较确定,Google 地图里有收藏，但网上查不到具体地址，请在 Google 地图里看一下地址补上,收藏
-Park Bong Sook,ParkBongsook,韩餐,Hurstville,南区,午餐|晚餐,$$,4.0,韩式家常料理,-33.9665,151.1015,较确定,,收藏
-The Grounds of Alexandria,The grounds,咖啡/早午餐,Alexandria,南区内城,早餐|早午餐|午餐,$$,4.3,花园+小农场，周末打卡圣地,-33.9105,151.1950,确认,,收藏
-Cairo Takeaway,Cairo Takeaway,中东/埃及菜,Enmore,内西区,早餐|午餐|晚餐,$,4.2,埃及小馆，koshari 和埃及咖啡,-33.8995,151.1745,确认,,收藏
-The Grounds Coffee Factory,Coffee factory,咖啡/早午餐,South Eveleigh,南区内城,早餐|早午餐,$$,4.0,The Grounds 的咖啡工厂店，空间大,-33.8990,151.1870,较确定,,收藏
-The Italian Bowl,Italian Bowl,意大利菜,Newtown,内西区,晚餐,$$,3.9,平价意面，学生和朋友聚餐友好,-33.8990,151.1780,较确定,,收藏
-Grace of India,Grace of India,印度菜,Milsons Point,北岸,晚餐,$$,3.9,海港大桥北侧的印度菜,-33.8465,151.2115,较确定,,收藏
-Uptown Korea,Uptown Korea,韩餐,Town Hall,市中心 CBD,午餐|晚餐|宵夜,$$,3.9,韩式炸鸡和下酒菜,-33.8740,151.2068,较确定,,收藏
-Palazzo Salato,Palazzo Salato,意大利菜,CBD,市中心 CBD,午餐|晚餐,$$$,4.3,奢华意式宫殿风装修，周末有 bottomless lunch,-33.8638,151.2090,确认,,收藏
-Gelato Messina,Messina,甜品/咖啡,Darlinghurst（多店）,东区内城,下午茶|晚餐|宵夜,$,4.6,悉尼最出名的意式冰淇淋，口味天天换,-33.8770,151.2215,确认,悉尼有多家分店,收藏
-Black Star Pastry,Black star past,甜品/咖啡,Newtown,内西区,早餐|下午茶,$$,4.4,西瓜草莓蛋糕发源地,-33.8975,151.1795,确认,原写作 Black star past,收藏
-OMI,OMI,日料,Chatswood,北岸,午餐|晚餐,$$,3.9,和牛日料,-33.7965,151.1810,猜测,按搜索到的 OMI Chatswood 猜测,收藏
-Thai Pothong,Thai Pothong,泰餐,Newtown,内西区,午餐|晚餐,$$,4.0,Newtown 老牌泰餐，装修有泰式风情,-33.8960,151.1800,确认,,收藏
-Henry Lee's,Henry Lee,咖啡/早午餐,Redfern,南区内城,早餐|午餐|晚餐,$$,4.1,白天咖啡晚上酒吧，社区氛围,-33.8930,151.2020,较确定,,收藏
-Kajiken,Kajiken,日料,CBD,市中心 CBD,午餐|晚餐,$,4.2,日式拌面（油そば）专门店，便宜好吃,-33.8790,151.2045,较确定,坐标为大致位置,收藏
-Yakitory,Yakitory,日料,未确认,位置待确认,晚餐,$$,,日式串烧,,,猜测,没找到同名门店；Google 地图收藏里有 Yakitori Chaco Bar 和 Yakitori Yurippi，可能是其中一家，确认后可删掉这一行,收藏
-Fireside by Yunn,Fireside byYunn,未确认,未确认,位置待确认,,,,,,,猜测,网上没找到，请补充地址,收藏
-Eleven Barrack,Eleven Barrack,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.5,Bentley 集团海鲜+牛排炭烤，两帽,-33.8682,151.2058,确认,,收藏
-Grill Americano,Grill Americano,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.3,Ragazzi 团队的美式意大利牛排馆,-33.8657,151.2095,较确定,,收藏
-DOZO,DOZO,日料,未确认,位置待确认,,,,,,,猜测,有同名店但细节未核实,收藏
-Chaco Bar,CHACO BAR|Yakitori Chaco Bar,日料,Darlinghurst,东区内城,晚餐,$$,4.4,串烧+拉面小店，限量拉面要早去,-33.8770,151.2190,确认,,收藏
-Tam Jiak,TAM JIAK,马来/南洋,Glebe（另有 Sydney Fish Market 店）,内西区,午餐|晚餐,$$,4.2,Ho Jiak 姐妹店，南洋海鲜,-33.8800,151.1855,确认,,收藏
-Doodee King,Doodee King,未确认,未确认,位置待确认,,,,,,,猜测,有收录但细节未核实，可能是泰餐,收藏
-Dopa,Dopa,日料,Haymarket（Darling Square）,中国城/Haymarket,午餐|晚餐|下午茶,$,4.1,Devon 团队的日式丼饭+牛奶吧,-33.8782,151.2017,确认,,收藏
-Flying Tigress,Flying Tigress,未确认,未确认,位置待确认,,,,,,,猜测,网上没找到，请补充,收藏
-YIN,YIN,未确认,未确认,位置待确认,,,,,,,猜测,网上没找到明确门店，请补充,收藏
-Noble Roasters,Noble Roasters,咖啡/早午餐,Waterloo,南区内城,早餐,$,4.0,社区精品咖啡烘焙店,-33.9000,151.2050,较确定,,收藏
-Yakiniku Hon,Yakiniku Hon,日料,未确认,位置待确认,晚餐,$$$,,日式烤肉,,,较确定,"AGFG 有收录，地址未核实；Google 地图里的 Sumibi Yakiniku 显示""formally…""，可能就是它改名后的店",收藏
-Ichi-ban Boshi,Ichi-ban Boshi,日料,CBD（The Galeries）,市中心 CBD,午餐|晚餐,$,4.1,老牌日式拉面，Galeries 楼上,-33.8722,151.2070,确认,,收藏
-Bellucci Cucina,Bellucci,意大利菜,CBD（Australia Square）,市中心 CBD,午餐|晚餐,$$,3.9,商务区意餐,-33.8649,151.2079,较确定,,收藏
-Sake Restaurant & Bar,Sake,日料,The Rocks,环形码头/The Rocks/Barangaroo,晚餐,$$$,4.1,摩登日料，适合朋友聚会,-33.8592,151.2080,较确定,,收藏
-Inase Sakaba,Inase Sakaba,日料,CBD,市中心 CBD,晚餐|宵夜,$$,4.0,大阪烧+串烧的热闹居酒屋,-33.8700,151.2060,较确定,坐标为大致位置,收藏
-Baia The Italian,BaiaTheItalian,意大利菜,Darling Harbour（Cockle Bay Wharf）,达令港/Pyrmont,午餐|晚餐,$$$,3.9,水边意餐，景色好,-33.8725,151.2015,确认,,收藏
-Yakiniku Kashiwa,Kashiwa,日料,未确认,位置待确认,晚餐,$$$,,日式烤肉,,,猜测,按搜索到的 Yakiniku Kashiwa 猜测,收藏
-江户前寿司（待确认）,江户前寿司,日料,未确认,位置待确认,晚餐,$$$$,,江户前寿司/omakase,,,猜测,只是寿司风格名，无法对应门店；可能是 Prefecture 48 omakase、Kuon 等，请补充店名,收藏
-The Gidley,The gidley,牛排/烧烤,CBD（King St）,市中心 CBD,晚餐|宵夜,$$$$,4.4,地下室复古牛排馆，氛围感强,-33.8693,151.2108,确认,,收藏
-Rockpool Bar & Grill,Rockpool|Rockpool Bar & Grill Sydney,牛排/烧烤,CBD（Hunter St）,市中心 CBD,午餐|晚餐,$$$$,4.6,悉尼牛排天花板之一，大堂华丽,-33.8660,151.2100,确认,,想去
-Bouillon L'Entrecôte,Bouillon L’Entrecote,法餐,CBD,市中心 CBD,午餐|晚餐,$$,4.2,平价法式 bouillon，三道式午餐划算,-33.8620,151.2115,确认,,想去
-20 Chapel,20 Chapel,牛排/烧烤,Marrickville,内西区,晚餐,$$$,4.4,前 Rockpool 主厨的社区牛排小馆,-33.9110,151.1550,确认,,收藏
-Elements Bar and Grill Pyrmont,Elements,牛排/烧烤,Pyrmont,达令港/Pyrmont,午餐|晚餐,$$$,4.0,牛排炭烤，Elements 集团 Pyrmont 店,-33.8690,151.1955,确认,Google 地图截图确认是 Pyrmont 店,想去
-Letra House,Letra House,酒吧/小食,CBD,市中心 CBD,晚餐|宵夜,$$$,4.0,鸡尾酒吧+小食，适合饭后续摊,-33.8640,151.2080,确认,,收藏
-Macelleria,Macelleria,牛排/烧烤,Bondi（另有 Newtown 等店）,东部海滩,午餐|晚餐,$$,4.1,肉铺式餐厅，自选肉现烤,-33.8915,151.2710,较确定,有多家分店,收藏
-Morena,Morena,拉美菜,CBD（The Fullerton）,市中心 CBD,晚餐,$$$$,4.3,名厨 Alejandro Saravia 的秘鲁/拉美菜,-33.8678,151.2078,确认,,收藏
-Dolar Shop 豆捞坊,豆捞坊,火锅,Haymarket（Darling Square）,中国城/Haymarket,午餐|晚餐,$$$,4.1,上海豆捞坊一人一锅精致火锅,-33.8786,151.2012,较确定,原写作 豆捞坊,收藏
-Brazico,Brazico,巴西烤肉,未确认,位置待确认,晚餐,$$,,巴西菜/巴西烤肉,,,较确定,EatClub 有收录，地址未核实,收藏
-Fred's,Fred’s,现代澳洲菜,Paddington,东区内城,晚餐,$$$$,4.5,开放式农家厨房，按时令食材出菜,-33.8860,151.2310,确认,,收藏
-NOMAD,NOMAD|NOMAD Sydney,西班牙/地中海,Surry Hills,东区内城,午餐|晚餐,$$$,4.4,地中海炭火料理，自制芝士和炸丸子,-33.8810,151.2095,确认,,收藏
-Olympus Dining,Olympus Dining,希腊菜,Redfern,南区内城,午餐|晚餐,$$$,4.4,纯白希腊风，炭烤海鲜和羊肉,-33.8920,151.2050,确认,,收藏
-The Grill at The International,The grill,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.4,Merivale 高空牛排馆,-33.8650,151.2075,猜测,名字常见，按最有名的 The Grill at The International 猜测；坐标为大致位置,收藏
-Taste of Turkey,Taste of Turkey,中东/埃及菜,Newtown,内西区,午餐|晚餐,$,3.9,土耳其 gozleme 和烤肉,-33.8970,151.1805,较确定,,收藏
-The Sanderson,The Sanderson,现代澳洲菜,CBD（285 George St）,市中心 CBD,午餐|晚餐,$$$,4.2,百年百货公司老楼改造的现代澳洲菜,-33.8665,151.2070,确认,,收藏
-Karrywang Chef,Karrywang Chef,未确认,未确认,位置待确认,,,,,,,猜测,网上没找到，请补充,收藏
-Shell House,Shell House,现代澳洲菜,CBD（Margaret St）,市中心 CBD,午餐|晚餐|宵夜,$$$$,4.4,钟楼大楼里的餐厅+屋顶 Sky Bar,-33.8650,151.2060,确认,,收藏
-Aalia,AALIA,中东/埃及菜,CBD（Martin Place）,市中心 CBD,午餐|晚餐,$$$$,4.6,中东 fine dining，多次获奖,-33.8675,151.2095,确认,,收藏
-Chophouse,Chophouse|Chophouse Sydney,牛排/烧烤,CBD（Bligh St）,市中心 CBD,午餐|晚餐,$$$,4.2,经典牛排馆，商务聚餐,-33.8657,151.2105,确认,,收藏
-Bistecca,Bistecca,牛排/烧烤,CBD（Dalley St）,市中心 CBD,晚餐,$$$$,4.6,佛罗伦萨 T 骨牛排，无手机氛围,-33.8630,151.2085,确认,,收藏
-TOKI Bistro & Bar,TOKI,日料,North Sydney,北岸,晚餐,$$$$,4.2,日式融合 10 道式套餐,-33.8395,151.2075,猜测,也可能是 Surry Hills 的韩餐 Tokki，请确认,收藏
-Ananas Bar & Brasserie,Ananas,法餐,The Rocks,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$,4.2,华丽法式 brasserie，生蚝和海鲜塔,-33.8593,151.2075,确认,,收藏
-BahBQ Brazilian Grill,BahBQ,巴西烤肉,Crows Nest,北岸,晚餐,$$$,4.0,巴西烤肉无限续,-33.8260,151.1990,确认,,收藏
-Joji,Joji,日料,CBD（屋顶）,市中心 CBD,晚餐|宵夜,$$$,4.1,日式屋顶 robata 炭烤+酒吧,-33.8645,151.2070,较确定,坐标为大致位置,收藏
-Sydney Eels BBQ,Sydney Eels BBQ,韩餐,Homebush,西区,晚餐,$$,3.9,韩式烤鳗鱼专门店,-33.8660,151.0825,确认,,收藏
-Hanwoo,Hanwoo,韩餐,未确认,位置待确认,晚餐,$$$,,韩牛烤肉,,,猜测,没找到明确门店，请补充,收藏
-Joie Brasserie,Joie Brasserie,法餐,Chatswood,北岸,午餐|晚餐,$$$,4.1,北岸新开的法式 brasserie,-33.7970,151.1830,确认,,收藏
-Mama Mulan,Mama Mulan,中餐,Chatswood,北岸,午餐|晚餐,$$,4.1,摩登中菜，北京烤鸭和点心,-33.7972,151.1805,确认,,收藏
-Délisia Panino & Espresso,Delisia Panino,意大利菜,Glebe,内西区,早餐|午餐,$,4.3,超大份意式帕尼尼三明治,-33.8790,151.1860,确认,,收藏
-Bathers Coogee,Bathers Coogee,现代澳洲菜,Coogee,东部海滩,早午餐|午餐|晚餐,$$,3.8,海滩边的休闲餐厅,-33.9205,151.2580,较确定,,收藏
-THEECA,THEECA,咖啡/早午餐,Darlinghurst,东区内城,早餐|早午餐|晚餐,$$,4.2,白天咖啡早午餐，晚上变酒吧,-33.8775,151.2170,确认,,收藏
-Single O Surry Hills,Single O Surry Hills,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐,$$,4.4,悉尼精品咖啡代表之一，自助咖啡龙头很有名,-33.8820,151.2090,确认,,收藏
-S'more,S'more,亚洲融合,Castlecrag,北岸,午餐|晚餐,$$$,4.3,北岸的亚洲融合小馆，口碑很好,-33.8000,151.2230,确认,,收藏
-Cucina Porto,Cucina Porto,意大利菜,Pyrmont（The Star）,达令港/Pyrmont,午餐|晚餐,$$$,4.2,The Star 里的意式海鲜和手工面,-33.8680,151.1950,确认,,想去
-Azuma,Azuma,日料,CBD（Chifley Plaza）,市中心 CBD,午餐|晚餐,$$$,4.2,老牌日料，商务午餐热门,-33.8665,151.2115,较确定,,收藏
-Deus Cafe Camperdown,Deus Cafe Camperdown,咖啡/早午餐,Camperdown,内西区,早餐|早午餐|午餐,$$,4.1,摩托车品牌 Deus 的咖啡店，空间很酷,-33.8880,151.1780,确认,,收藏
-Nanashi & Amahouse,Nanashi & Amahouse,日料,未确认,位置待确认,午餐|晚餐,$$,,日料,,,较确定,Google 地图里有收藏，网上没查到地址，请补上,收藏
-Kosta's Takeaway Circular Quay,Kosta's Takeaway Circular Quay,三明治/快餐,Circular Quay,环形码头/The Rocks/Barangaroo,早餐|午餐,$,4.4,希腊家常三明治和外卖，排队名店,-33.8615,151.2110,确认,,收藏
-Amuro,Amuro,日料,Darlinghurst,东区内城,晚餐|宵夜,$$$,4.4,以米为主题的日式酒吧，清酒选择多,-33.8790,151.2175,确认,,收藏
-Bourke Street Bakery Surry Hills,Bourke Street Bakery Surry Hills,甜品/咖啡,Surry Hills,东区内城,早餐|下午茶,$,4.4,悉尼面包店代表，香肠卷和挞必吃,-33.8900,151.2135,确认,,想去
-Friggitoria,Friggitoria,意大利菜,Potts Point,东区内城,午餐|晚餐,$$,4.0,意大利街头炸物小店,-33.8720,151.2245,较确定,,收藏
-Elements Smokehouse and Bar,Elements Smokehouse and Bar,牛排/烧烤,Darlinghurst,东区内城,午餐|晚餐,$$$,4.1,美式烟熏烤肉，Elements 集团 Darlinghurst 店,-33.8765,151.2180,确认,,收藏
-Sumibi Yakiniku,Sumibi Yakiniku,日料,未确认,位置待确认,晚餐,$$$,,炭火日式烤肉,,,较确定,"Google 地图显示店名后面有""formally…""（以前叫别的名字），网上没查到地址，请补上",收藏
-Spice Paradise,Spice Paradise,中餐,未确认,位置待确认,午餐|晚餐,$$,,湘菜,,,较确定,Google 地图里有收藏，网上没查到地址，请补上,收藏
-MuMian Dining,MuMian Dining,中餐,Darling Harbour,达令港/Pyrmont,午餐|晚餐,$$$,4.2,精致川菜，环境漂亮适合请客,-33.8745,151.2005,确认,,收藏
-Poketto,poketto,咖啡/早午餐,未确认,位置待确认,早餐|早午餐,$$,,日式风格咖啡店,,,较确定,Google 地图里有收藏，地址未核实，请补上,想去
-Australian Meat Emporium,Australian Meat Emporium,牛排/烧烤,Alexandria,南区内城,午餐|晚餐,$$$,4.4,肉铺+餐厅，选好牛排现场煎,-33.9100,151.1960,确认,,收藏
-My Zakaya,My Zakaya,日料,Surry Hills,东区内城,晚餐|宵夜,$$,4.1,热闹的日式居酒屋,-33.8850,151.2105,较确定,,想去
-Bella Brutta,Bella Brutta,意大利菜,Newtown,内西区,晚餐,$$,4.5,柴火披萨名店，饼底很有嚼劲,-33.8955,151.1815,确认,,收藏
-Sacrebleu! Canelés & Co,Sacrebleu ! Canelés & Co,甜品/咖啡,Barangaroo（Crown Sydney）,环形码头/The Rocks/Barangaroo,早餐|下午茶,$$,4.3,法式可露丽专门店,-33.8613,151.2022,确认,,收藏
-Kuro Bar & Dining,Kuro Bar & Dining,日料,CBD,市中心 CBD,午餐|晚餐|宵夜,$$$,4.2,现代日料+酒吧,-33.8660,151.2075,较确定,坐标为大致位置,收藏
-The Baxter Inn,The Baxter Inn,酒吧/小食,CBD（Clarence St）,市中心 CBD,宵夜,$$,4.6,地下威士忌酒吧，常年上榜世界最佳酒吧,-33.8690,151.2045,确认,,收藏
-Nichi Getsu Do,Nichi Getsu Dō,日料,CBD（Kent St）,市中心 CBD,午餐|晚餐,$,4.1,日式拉面,-33.8720,151.2040,较确定,,收藏
-Cardea,Cardea Sydney – Cocktail,酒吧/小食,Barangaroo,环形码头/The Rocks/Barangaroo,晚餐|宵夜,$$$,4.2,鸡尾酒+现场音乐,-33.8630,151.2015,确认,,收藏
-Chin Chin,Chin Chin,亚洲融合,Surry Hills,东区内城,午餐|晚餐,$$$,4.3,热闹的东南亚融合菜，适合朋友聚会,-33.8795,151.2100,确认,,收藏
-The Evergreen,The Evergreen,亚洲融合,Chatswood,北岸,早午餐|午餐|晚餐,$$,4.0,韩式融合早午餐,-33.7968,151.1825,确认,,想去
-Hustlers.Syd,Hustlers.Syd,亚洲融合,CBD,市中心 CBD,晚餐|宵夜,$$$,4.1,泛亚洲菜+酒吧，氛围热闹,-33.8700,151.2075,较确定,坐标为大致位置,想去
-Yakitori Yurippi,Yakitori Yurippi,日料,Crows Nest,北岸,晚餐,$$,4.4,北岸人气串烧店,-33.8265,151.2015,确认,,想去
-Bar Besuto,Bar Besuto (Private Whisky),酒吧/小食,Circular Quay,环形码头/The Rocks/Barangaroo,宵夜,$$$$,4.4,东京风格的私藏日本威士忌酒吧,-33.8622,151.2100,确认,,想去
-Maybe Sammy,Maybe Sammy,酒吧/小食,The Rocks,环形码头/The Rocks/Barangaroo,宵夜,$$$,4.6,世界50佳酒吧之一，复古好莱坞风,-33.8600,151.2075,确认,,想去
-Mjølner,Mjølner Sydney,牛排/烧烤,Redfern,南区内城,晚餐,$$$,4.3,维京主题地下餐厅+威士忌,-33.8880,151.2040,确认,,想去
-Pino Vino e Cucina Alexandria,Pino Vino e Cucina Alexandria,意大利菜,Alexandria,南区内城,午餐|晚餐,$$$,4.2,意式海鲜和手工面,-33.9060,151.1980,较确定,坐标为大致位置,想去
-BLACK Bar & Grill,BLACK Bar & Grill,牛排/烧烤,Pyrmont（The Star）,达令港/Pyrmont,晚餐,$$$$,4.3,The Star 里的高端牛排馆,-33.8685,151.1945,确认,,想去
-Ester,Ester Restaurant,现代澳洲菜,Chippendale,南区内城,晚餐,$$$$,4.6,柴火烤炉现代澳洲菜，多次上榜,-33.8865,151.1985,确认,,想去
-LuMi Dining,LuMi Dining,日料,Pyrmont（Jones Bay Wharf）,达令港/Pyrmont,晚餐,$$$$,4.6,日意融合 fine dining，海港边,-33.8645,151.1945,确认,,收藏
-Rengaya,Rengaya,日料,North Sydney,北岸,午餐|晚餐,$$$,4.2,老牌日式烤肉+寿司,-33.8385,151.2070,确认,,收藏
-Tajima Yakiniku,Tajima Yakiniku,日料,CBD,市中心 CBD,晚餐,$$$,4.0,日式烤肉,-33.8745,151.2060,较确定,坐标为大致位置,想去
-TenTo,TenTo,日料,Surry Hills,东区内城,午餐|晚餐,$$,4.3,天妇罗专门店,-33.8860,151.2115,确认,,收藏
-Shinmachi Newtown,Shinmachi Newtown,日料,Newtown,内西区,晚餐,$$,4.2,日式居酒屋,-33.8985,151.1785,确认,,收藏
-Kagoshima Master Yakiniku,Kagoshima Master Yakiniku,日料,Crows Nest（另有 Ultimo 店）,北岸,晚餐,$$$,4.2,鹿儿岛和牛烧肉,-33.8255,151.2005,较确定,有两家店，不确定收藏的是哪家,想去
-The Eight,The Eight,中餐,Haymarket（Market City）,中国城/Haymarket,午餐|晚餐,$$,4.1,大型港式点心楼，早茶热门,-33.8800,151.2045,确认,,收藏
-Yuzu,Yuzu pyrmont,日料,Pyrmont,达令港/Pyrmont,午餐|晚餐,$$,4.0,Pyrmont 的日料小馆,-33.8705,151.1945,较确定,,想去
-The Goodsline Pyrmont,The Goodsline Pyrmont,未确认,Pyrmont,位置待确认,,,,,,,猜测,Google 地图里有收藏，但网上没查到这家店，请确认,想去
+﻿name,original_names,cuisine,area,region,meals,price,score,highlights,signature,vibe,lat,lng,confidence,note,status
+Bar Totti's,Bar Totti’s,意大利菜,CBD (The Ivy),市中心 CBD,午餐|晚餐,$$$,4.6,招牌柴火烤面包和意式小食，Merivale 旗下人气意餐，订位难度高,柴火烤面包 Wood-fired bread|意式前菜 antipasti|手工意面,Ivy 里的露天庭院意式小酒馆，热闹有夜生活感，适合朋友聚餐,-33.8669,151.2074,确认,,收藏
+Issho Cafe,Issho cafe,甜品/咖啡,Haymarket,中国城/Haymarket,早午餐|下午茶,$$,4.0,日式甜品屋（Tokyo Dessert House），舒芙蕾和抹茶甜点出片,舒芙蕾松饼|抹茶甜点|日式刨冰,小而精致的日式甜品店，适合下午茶和拍照,-33.8790,151.2063,确认,Siam Palette 集团旗下,收藏
+Bennie's Cafe Bistro,Bennie’s cafe,咖啡/早午餐,CBD,市中心 CBD,早餐|午餐,$$,4.1,CBD 上班族口碑早午餐店，菜量足,全日早餐 big breakfast|班尼迪克蛋,上班族咖啡馆，快速随意,-33.8680,151.2048,较确定,具体门牌未核实，坐标为大致位置,收藏
+Mango Coco,Mango Coco|MANGO COCO,甜品/咖啡,Haymarket（泰国城）,中国城/Haymarket,下午茶|晚餐|宵夜,$,4.1,泰式芒果糯米饭、榴莲冰，开得晚适合饭后甜品,芒果糯米饭|榴莲冰|芒果冰沙,泰国城甜品店，营业到深夜，饭后续摊很方便,-33.8800,151.2060,确认,另有 Pitt St 分店,收藏
+Umaya,Umaya|UMAYA,日料,CBD（连锁多店）,市中心 CBD,午餐|晚餐,$$,3.7,平价日式定食/寿司连锁，适合工作日快餐,鳗鱼饭|日式定食|寿司拼盘,平价快捷，适合一个人工作日午餐,-33.8735,151.2075,较确定,悉尼有多家分店（CBD、Parramatta、Macquarie 等），坐标取 CBD 店附近,收藏
+Oborozuki,Oborozuki,日料,Circular Quay,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.4,法日融合高级日料，楼梯和挑高空间很适合拍照,和牛|刺身拼盘|法日融合套餐,挑高空间配大楼梯，灯光暗、仪式感强，适合约会和庆祝,-33.8617,151.2105,确认,,收藏
+Edition Coffee Roasters,Edition,咖啡/早午餐,Haymarket（Darling Square）,中国城/Haymarket,早餐|早午餐|午餐,$$,4.3,北欧+日式风格咖啡店，鸡蛋三明治和手冲出名,日式鸡蛋三明治 tamago sando|手冲咖啡|抹茶,北欧极简木质风，安静明亮,-33.8783,151.2022,较确定,也可能指其他名叫 Edition 的店；按最有名的 Edition Coffee Roasters 处理,收藏
+Porteño,Porteno,拉美菜,Surry Hills,东区内城,晚餐,$$$,4.4,阿根廷炭火烤肉，整只乳猪和羊慢烤，氛围热闹,炭火慢烤乳猪|阿根廷牛排|烤羊,摇滚复古装修，音乐大声、气氛热烈，适合聚会,-33.8853,151.2088,确认,,收藏
+The Brother's Cafe,The Brothers|The brothers,咖啡/早午餐,Darling Harbour,达令港/Pyrmont,早餐|午餐,$$,3.6,达令港边的休闲咖啡简餐,,,-33.8715,151.2000,猜测,名字太常见，按 Darling Harbour 官网列出的 The Brother's Cafe 猜测,收藏
+Seoul Ria,Seoul Ria,韩餐,CBD 南（Liverpool St 一带）,中国城/Haymarket,午餐|晚餐,$$,3.9,老牌韩式烤肉和韩式家常菜,韩式烤五花|海鲜饼|石锅拌饭,老派韩国馆子，家常随意,-33.8775,151.2072,较确定,坐标为大致位置,收藏
+PIÑA,PINA|Pina,咖啡/早午餐,Potts Point,东区内城,早餐|早午餐,$$,4.0,Potts Point 街角咖啡店，早午餐清爽,牛油果吐司|早午餐碗|咖啡,街角小店，阳光明亮的社区早午餐感,-33.8715,151.2255,较确定,,收藏
+Auvers Dining,Auvers Dining,咖啡/早午餐,Haymarket（Darling Square）,中国城/Haymarket,早午餐|下午茶|晚餐,$$,4.0,梵高主题装修，网红早午餐和甜品,梵高主题早午餐|松饼|特调饮品,满墙梵高画作的主题装修，非常出片,-33.8778,151.2010,确认,Rhodes Waterside 也有分店,收藏
+The Dose Cafe,THE DOSE|The dose,咖啡/早午餐,The Rocks,环形码头/The Rocks/Barangaroo,早餐|午餐,$$,3.9,The Rocks 里的小咖啡店，逛完岩石区歇脚,咖啡|三明治,岩石区小店，逛街中途歇脚,-33.8595,151.2088,较确定,,收藏
+Khao Soi Restaurant,khao soi,泰餐,Haymarket,中国城/Haymarket,午餐|晚餐,$,4.1,泰北咖喱面 Khao Soi 专门店，汤底浓郁,泰北咖喱面 Khao Soi|泰式炒河粉,简单朴素，重口味靠一碗面,-33.8797,151.2066,较确定,,收藏
+Soi Thai on Glebe,Soi Thai,泰餐,Glebe,内西区,午餐|晚餐,$,3.6,社区平价泰餐,,,-33.8810,151.1850,猜测,也可能是 CBD 的 Soi Arcade 等，按名称最接近的 Soi Thai on Glebe 处理,收藏
+Everyday Sopoong,EverydaySoPoong,韩餐,未确认,位置待确认,午餐|晚餐,$,3.8,韩式小吃/炸鸡类休闲店,,,,,猜测,AGFG 有收录但位置未核实,收藏
+Haidilao 海底捞,Haidilao,火锅,Haymarket（悉尼多店）,中国城/Haymarket,午餐|晚餐|宵夜,$$$,4.1,服务出名的川味火锅，营业到很晚，适合聚会,番茄锅|麻辣锅|捞面表演,服务周到、营业到很晚，热闹适合聚会,-33.8770,151.2035,较确定,悉尼有多家分店，坐标取市区附近,收藏
+Napnap,Napnap,未确认,未确认,位置待确认,,,,,,,,,猜测,网上没找到明确对应的悉尼门店，请补充,收藏
+WS Espresso,WS Expresso,咖啡/早午餐,未确认,位置待确认,早餐,$,,,,,,,猜测,原写作 Expresso，没找到明确门店，请补充,收藏
+6HEAD,6 head,牛排/烧烤,The Rocks（Campbells Stores）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.5,海港大桥+歌剧院景观牛排馆，约会和招待朋友首选,干式熟成牛排|海鲜拼盘|牛排配菜,正对歌剧院和海港大桥的水边露台，景观一流，适合约会招待,-33.8584,151.2103,确认,原写作 6 head,收藏
+Macchiato Wood Fire Pizza & Coffee,macchiato|Macchiato,意大利菜,CBD,市中心 CBD,早餐|午餐|晚餐,$$,3.8,全天营业的意式披萨+咖啡，选择多不踩雷,柴火披萨|意面|咖啡,明亮热闹的全天餐厅，大众友好,-33.8755,151.2080,较确定,,收藏
+Bentley Restaurant + Bar,Bentley,现代澳洲菜,CBD,市中心 CBD,午餐|晚餐,$$$$,4.5,帽子级 fine dining，酒单强大,主厨品尝菜单|精选酒单,高端优雅，安静讲究，适合重要场合,-33.8652,151.2106,确认,,想去
+Bornga Korean BBQ,bornga|Bornga BBQ,韩餐,Haymarket,中国城/Haymarket,午餐|晚餐,$$$,4.0,白钟元旗下韩式烤肉，烤五花和冷面人气高,烤五花肉|韩式冷面|调味牛排骨,明亮热闹的韩式烤肉店，烟火气足,-33.8810,151.2045,确认,,收藏
+Moku,moku,日料,Darlinghurst,东区内城,晚餐,$$$,4.2,串烧+刺身的日式居酒屋，夜晚氛围好,鸡肉串烧|刺身|清酒,昏暗灯光的小居酒屋，下班小酌,-33.8780,151.2185,确认,,收藏
+Grana,grana|Grana,意大利菜,Circular Quay（Hinchcliff House）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$,4.4,自磨面粉做手工面，Hinchcliff House 楼上,手工意面|面包和自磨面粉制品|意式甜点,Hinchcliff House 老仓库楼层，温暖砖墙，适合约会,-33.8625,151.2102,确认,,收藏
+Ennui,ennui|Ennui,法餐,Haymarket（461 Pitt St）,中国城/Haymarket,午餐|晚餐|宵夜,$$$,4.2,复古法式小酒馆+餐厅，老建筑里很有情调,法式牛排薯条|鸭胸|法式甜点,复古法式小酒馆，老建筑有情调,-33.8795,151.2070,确认,,收藏
+Civico 47,Civoco47,意大利菜,Paddington,东区内城,晚餐,$$$,4.3,老建筑里的意式家庭料理，服务暖心,手工意面|提拉米苏,老房子里温馨的家庭式意餐，适合家庭聚餐,-33.8850,151.2270,确认,原写作 Civoco47,收藏
+Ursula's,Ursula’s,现代澳洲菜,Paddington,东区内城,早午餐|午餐|晚餐,$$$,4.4,Paddington 街角的精致小馆，周末早午餐很受欢迎,周末早午餐|时令小盘菜|葡萄酒,街角小馆，雅致低调,-33.8865,151.2320,确认,,收藏
+LANA,LANA,西班牙/地中海,Circular Quay（Hinchcliff House）,环形码头/The Rocks/Barangaroo,晚餐,$$$$,4.3,地中海/西班牙风味炭烤，空间漂亮,炭烤海鲜|西班牙饭 paella|tapas,Hinchcliff House 里明亮的地中海空间，适合朋友聚餐,-33.8627,151.2104,确认,,收藏
+The Charles Grand Brasserie,The Charles,法餐,CBD,市中心 CBD,午餐|晚餐,$$$,4.3,大气的法式 brasserie，适合商务和庆祝,海鲜塔|法式牛排|舒芙蕾,大理石和黄铜的大堂式 brasserie，气派，适合商务和庆祝,-33.8690,151.2070,较确定,,收藏
+Quoi Dining,Quoi,现代澳洲菜,Baulkham Hills,西区,晚餐,$$$,4.2,西北区的高口碑精致餐厅，值得专程,品尝菜单|时令现代澳洲菜,西北区少见的精致餐厅，安静,-33.7625,150.9930,较确定,,收藏
+Ragazzi,Ragazzi,意大利菜,CBD（Angel Place）,市中心 CBD,午餐|晚餐,$$,4.4,小巷里的手工意面+自然酒，性价比高,手工意面|自然酒|意式前菜,小巷里的小酒馆，紧凑热闹,-33.8668,151.2078,确认,,收藏
+Prefecture 48,Perfecture 48|Garaku at Prefecture 48,日料,Wynyard,市中心 CBD,午餐|晚餐,$$$$,4.5,六合一日料综合体，含 omakase、铁板烧和酒吧,omakase|铁板烧|日式烤肉 yakiniku,几家日式餐厅加酒吧在同一层，空间时髦,-33.8657,151.2062,确认,原写作 Perfecture 48；Google 地图里收藏的是其中的 Garaku,收藏
+Paramount Coffee Project,Paramount,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐,$$,4.3,Surry Hills 早午餐名店，咖啡出色,美式炸鸡松饼|咖啡,工业风大空间，周末排队,-33.8800,151.2105,确认,,想去
+Daikoku Teppanyaki,"Daikoku|Daikoku Teppanyaki, Concord",日料,Concord,西区,晚餐,$$,3.8,铁板烧表演，适合家庭聚餐,铁板烧和牛|铁板海鲜|蒜香炒饭,厨师现场表演，热闹，适合带小孩和家庭聚餐,-33.8600,151.1030,确认,Google 地图截图确认是 Concord 店,收藏
+Devon Cafe,Devon,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐|午餐,$$,4.2,亚洲融合早午餐鼻祖之一，创意菜色,Breakfast with the Sakuma's（三文鱼早餐）|创意早午餐,亚洲融合早午餐，年轻活泼,-33.8880,151.2110,确认,,收藏
+Bopp & Tone,Bopp & Tone,现代澳洲菜,CBD（Carrington St）,市中心 CBD,午餐|晚餐,$$$,4.2,地中海风味的商务午餐热门地,炭烤鱼|地中海小盘菜|鸡尾酒,大窗明亮的商务餐厅，午餐时间热闹,-33.8668,151.2058,确认,,收藏
+Hurricane's Grill,Hurricanes’s,牛排/烧烤,Darling Harbour,达令港/Pyrmont,午餐|晚餐,$$$,4.0,超大份猪肋排，海港景观,超大份烤猪肋排|牛排,水边大餐厅，适合带家人,-33.8710,151.1990,较确定,Bondi 也有分店,收藏
+Ellen,Ellen,咖啡/早午餐,Alexandria,南区内城,早餐|早午餐,$$,3.9,Sydney Park 旁的早午餐店,早午餐|咖啡,Sydney Park 旁边，悠闲社区感,-33.9080,151.1920,较确定,,收藏
+Two Sis & Co,two sis & co,咖啡/早午餐,Pyrmont,达令港/Pyrmont,早餐|早午餐,$$,4.0,Pyrmont 街区小咖啡店，早午餐温馨,早午餐|咖啡,小而温馨的街区咖啡店,-33.8695,151.1955,确认,,收藏
+a'Mare,a’ Mare,意大利菜,Barangaroo（Crown Sydney）,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$$,4.6,Crown 酒店里的高端意餐，桌边服务+海港景,桌边制作的意式甜点|海鲜意面|生鱼片 crudo,Crown 酒店里的高级意餐，海港景观，正式优雅,-33.8612,151.2025,确认,,收藏
+Bessie's,Bassie’s,现代澳洲菜,Surry Hills,东区内城,晚餐,$$$,4.2,复古风情的社区餐厅,,,-33.8835,151.2125,猜测,原写作 Bassie’s，按名字最接近的 Bessie's 猜测,收藏
+Taste Texture,taste texture,未确认,未确认,位置待确认,,,,,,,,,猜测,Wanderlog 有收录但信息不足,收藏
+Kobe Wagyu,kobe wagyu,日料,CBD,市中心 CBD,晚餐,$$$,4.0,和牛烧肉/日式烤肉,和牛烧肉|和牛拼盘,日式烤肉店，适合小聚,-33.8720,151.2065,较确定,坐标为大致位置,收藏
+Deux Frères,Deux Freres,西班牙/地中海,Circular Quay,环形码头/The Rocks/Barangaroo,晚餐|宵夜,$$,4.0,L'Entrecôte 团队的 pintxos 小吃吧,西班牙小吃 pintxos|葡萄酒,小酒吧氛围，适合饭前饭后喝一杯,-33.8615,151.2098,较确定,,收藏
+The Melting Cheese,Melting Cheese,汉堡/快餐,CBD,市中心 CBD,午餐|晚餐,$$,3.6,汉堡蘸一碗融化芝士，适合打卡拍视频,融化芝士汉堡|芝士薯条,休闲快餐，打卡拍视频,-33.8770,151.2065,较确定,坐标为大致位置,收藏
+Ho Jiak,Ho Jiak,马来/南洋,Haymarket（另有 Town Hall、Strathfield）,中国城/Haymarket,午餐|晚餐,$$,4.4,马来西亚菜名店，炒粿条和龙虾面必点,龙虾 mee goreng 面|炒粿条|海南鸡饭,热闹的南洋馆子，常要排队,-33.8800,151.2032,确认,,收藏
+Myeongdong Korean Restaurant,Myeongdong,韩餐,North Strathfield,西区,午餐|晚餐,$$,4.0,韩式家常菜和烤肉，分量足,韩式烤肉|部队锅|海鲜饼,家常韩国餐厅，分量足,-33.8590,151.0890,较确定,Chatswood 也有同名店,收藏
+Sho Sushi,sho sushi,日料,未确认,位置待确认,,,,,,,,,较确定,Google 地图里有收藏，但网上查不到具体地址，请在 Google 地图里看一下地址补上,收藏
+Park Bong Sook,ParkBongsook,韩餐,Hurstville,南区,午餐|晚餐,$$,4.0,韩式家常料理,韩式家常菜|炖菜,社区家常店,-33.9665,151.1015,较确定,,收藏
+The Grounds of Alexandria,The grounds,咖啡/早午餐,Alexandria,南区内城,早餐|早午餐|午餐,$$,4.3,花园+小农场，周末打卡圣地,全日早午餐|甜点|咖啡,花园、小农场和季节布置，周末打卡圣地，适合带小孩,-33.9105,151.1950,确认,,收藏
+Cairo Takeaway,Cairo Takeaway,中东/埃及菜,Enmore,内西区,早餐|午餐|晚餐,$,4.2,埃及小馆，koshari 和埃及咖啡,埃及国民菜 koshari|埃及咖啡|炸豆丸子 ta'ameya,小而有异国风情的埃及小馆,-33.8995,151.1745,确认,,收藏
+The Grounds Coffee Factory,Coffee factory,咖啡/早午餐,South Eveleigh,南区内城,早餐|早午餐,$$,4.0,The Grounds 的咖啡工厂店，空间大,咖啡|早午餐,工厂改造的大空间，明亮宽敞,-33.8990,151.1870,较确定,,收藏
+The Italian Bowl,Italian Bowl,意大利菜,Newtown,内西区,晚餐,$$,3.9,平价意面，学生和朋友聚餐友好,平价意面|千层面,简单随意，学生友好,-33.8990,151.1780,较确定,,收藏
+Grace of India,Grace of India,印度菜,Milsons Point,北岸,晚餐,$$,3.9,海港大桥北侧的印度菜,黄油鸡|烤饼 naan|咖喱,北岸的家常印度馆,-33.8465,151.2115,较确定,,收藏
+Uptown Korea,Uptown Korea,韩餐,Town Hall,市中心 CBD,午餐|晚餐|宵夜,$$,3.9,韩式炸鸡和下酒菜,韩式炸鸡|下酒小菜,晚上喝酒聊天的韩式酒馆,-33.8740,151.2068,较确定,,收藏
+Palazzo Salato,Palazzo Salato,意大利菜,CBD,市中心 CBD,午餐|晚餐,$$$,4.3,奢华意式宫殿风装修，周末有 bottomless lunch,意面|周末 bottomless lunch,奢华宫殿风装修，非常出片，适合聚会庆祝,-33.8638,151.2090,确认,,收藏
+Gelato Messina,Messina,甜品/咖啡,Darlinghurst（多店）,东区内城,下午茶|晚餐|宵夜,$,4.6,悉尼最出名的意式冰淇淋，口味天天换,每周特别口味 gelato|意式冰淇淋,排队热门的冰淇淋店，晚上也营业,-33.8770,151.2215,确认,悉尼有多家分店,收藏
+Black Star Pastry,Black star past,甜品/咖啡,Newtown,内西区,早餐|下午茶,$$,4.4,西瓜草莓蛋糕发源地,西瓜草莓蛋糕|各式挞,小店外带为主，打卡必买,-33.8975,151.1795,确认,原写作 Black star past,收藏
+OMI,OMI,日料,Chatswood,北岸,午餐|晚餐,$$,3.9,和牛日料,,,-33.7965,151.1810,猜测,按搜索到的 OMI Chatswood 猜测,收藏
+Thai Pothong,Thai Pothong,泰餐,Newtown,内西区,午餐|晚餐,$$,4.0,Newtown 老牌泰餐，装修有泰式风情,泰式咖喱|泰式炒河粉|冬阴功,泰式装饰浓郁的大餐厅，适合聚餐,-33.8960,151.1800,确认,,收藏
+Henry Lee's,Henry Lee,咖啡/早午餐,Redfern,南区内城,早餐|午餐|晚餐,$$,4.1,白天咖啡晚上酒吧，社区氛围,咖啡|早午餐|晚间酒吧小食,白天咖啡晚上酒吧，社区感,-33.8930,151.2020,较确定,,收藏
+Kajiken,Kajiken,日料,CBD,市中心 CBD,午餐|晚餐,$,4.2,日式拌面（油そば）专门店，便宜好吃,日式拌面 mazesoba,吧台小店，快进快出,-33.8790,151.2045,较确定,坐标为大致位置,收藏
+Yakitory,Yakitory,日料,未确认,位置待确认,晚餐,$$,,日式串烧,,,,,猜测,没找到同名门店；Google 地图收藏里有 Yakitori Chaco Bar 和 Yakitori Yurippi，可能是其中一家，确认后可删掉这一行,收藏
+Fireside by Yunn,Fireside byYunn,未确认,未确认,位置待确认,,,,,,,,,猜测,网上没找到，请补充地址,收藏
+Eleven Barrack,Eleven Barrack,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.5,Bentley 集团海鲜+牛排炭烤，两帽,炭烤海鲜|干式熟成牛排,Bentley 集团的精致炭烤餐厅，适合商务和约会,-33.8682,151.2058,确认,,收藏
+Grill Americano,Grill Americano,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.3,Ragazzi 团队的美式意大利牛排馆,牛排|意式美式菜|马天尼,复古美式意大利牛排馆，有派对感,-33.8657,151.2095,较确定,,收藏
+DOZO,DOZO,日料,未确认,位置待确认,,,,,,,,,猜测,有同名店但细节未核实,收藏
+Chaco Bar,CHACO BAR|Yakitori Chaco Bar,日料,Darlinghurst,东区内城,晚餐,$$,4.4,串烧+拉面小店，限量拉面要早去,鸡肉串烧|限量拉面,小而热闹的吧台店，需要早到,-33.8770,151.2190,确认,,收藏
+Tam Jiak,TAM JIAK,马来/南洋,Glebe（另有 Sydney Fish Market 店）,内西区,午餐|晚餐,$$,4.2,Ho Jiak 姐妹店，南洋海鲜,南洋海鲜|辣椒蟹|炒面,海鲜大排档风格，热闹,-33.8800,151.1855,确认,,收藏
+Doodee King,Doodee King,未确认,未确认,位置待确认,,,,,,,,,猜测,有收录但细节未核实，可能是泰餐,收藏
+Dopa,Dopa,日料,Haymarket（Darling Square）,中国城/Haymarket,午餐|晚餐|下午茶,$,4.1,Devon 团队的日式丼饭+牛奶吧,丼饭|日式牛奶甜点,明亮简约，适合快速一餐,-33.8782,151.2017,确认,,收藏
+Flying Tigress,Flying Tigress,未确认,未确认,位置待确认,,,,,,,,,猜测,网上没找到，请补充,收藏
+YIN,YIN,未确认,未确认,位置待确认,,,,,,,,,猜测,网上没找到明确门店，请补充,收藏
+Noble Roasters,Noble Roasters,咖啡/早午餐,Waterloo,南区内城,早餐,$,4.0,社区精品咖啡烘焙店,精品咖啡|烘焙豆,社区咖啡烘焙坊,-33.9000,151.2050,较确定,,收藏
+Yakiniku Hon,Yakiniku Hon,日料,未确认,位置待确认,晚餐,$$$,,日式烤肉,,,,,较确定,"AGFG 有收录，地址未核实；Google 地图里的 Sumibi Yakiniku 显示""formally…""，可能就是它改名后的店",收藏
+Ichi-ban Boshi,Ichi-ban Boshi,日料,CBD（The Galeries）,市中心 CBD,午餐|晚餐,$,4.1,老牌日式拉面，Galeries 楼上,豚骨拉面|日式小菜,老牌商场楼上拉面店，快捷,-33.8722,151.2070,确认,,收藏
+Bellucci Cucina,Bellucci,意大利菜,CBD（Australia Square）,市中心 CBD,午餐|晚餐,$$,3.9,商务区意餐,意面|披萨,商务区意餐，工作日午餐,-33.8649,151.2079,较确定,,收藏
+Sake Restaurant & Bar,Sake,日料,The Rocks,环形码头/The Rocks/Barangaroo,晚餐,$$$,4.1,摩登日料，适合朋友聚会,寿司卷|和牛|日式融合菜,时髦热闹的摩登日料，适合朋友聚会,-33.8592,151.2080,较确定,,收藏
+Inase Sakaba,Inase Sakaba,日料,CBD,市中心 CBD,晚餐|宵夜,$$,4.0,大阪烧+串烧的热闹居酒屋,大阪烧|串烧|日式啤酒,热闹居酒屋，下班喝一杯,-33.8700,151.2060,较确定,坐标为大致位置,收藏
+Baia The Italian,BaiaTheItalian,意大利菜,Darling Harbour（Cockle Bay Wharf）,达令港/Pyrmont,午餐|晚餐,$$$,3.9,水边意餐，景色好,海鲜意面|披萨,达令港水边，适合散步后吃饭,-33.8725,151.2015,确认,,收藏
+Yakiniku Kashiwa,Kashiwa,日料,未确认,位置待确认,晚餐,$$$,,日式烤肉,,,,,猜测,按搜索到的 Yakiniku Kashiwa 猜测,收藏
+江户前寿司（待确认）,江户前寿司,日料,未确认,位置待确认,晚餐,$$$$,,江户前寿司/omakase,,,,,猜测,只是寿司风格名，无法对应门店；可能是 Prefecture 48 omakase、Kuon 等，请补充店名,收藏
+The Gidley,The gidley,牛排/烧烤,CBD（King St）,市中心 CBD,晚餐|宵夜,$$$$,4.4,地下室复古牛排馆，氛围感强,干式熟成牛排|桌边鸡尾酒,地下室复古牛排馆，暗灯皮椅，很有氛围,-33.8693,151.2108,确认,,收藏
+Rockpool Bar & Grill,Rockpool|Rockpool Bar & Grill Sydney,牛排/烧烤,CBD（Hunter St）,市中心 CBD,午餐|晚餐,$$$$,4.6,悉尼牛排天花板之一，大堂华丽,干式熟成和牛|招牌汉堡|酒单,华丽的老银行大堂，悉尼经典高端牛排馆,-33.8660,151.2100,确认,,想去
+Bouillon L'Entrecôte,Bouillon L’Entrecote,法餐,CBD,市中心 CBD,午餐|晚餐,$$,4.2,平价法式 bouillon，三道式午餐划算,法式牛排薯条|三道式午餐,平价法式小馆，轻松,-33.8620,151.2115,确认,,想去
+20 Chapel,20 Chapel,牛排/烧烤,Marrickville,内西区,晚餐,$$$,4.4,前 Rockpool 主厨的社区牛排小馆,干式熟成牛排|小盘菜,前 Rockpool 主厨的社区小馆，温馨,-33.9110,151.1550,确认,,收藏
+Elements Bar and Grill Pyrmont,Elements,牛排/烧烤,Pyrmont,达令港/Pyrmont,午餐|晚餐,$$$,4.0,牛排炭烤，Elements 集团 Pyrmont 店,炭烤牛排|海鲜,Pyrmont 水边，轻松,-33.8690,151.1955,确认,Google 地图截图确认是 Pyrmont 店,想去
+Letra House,Letra House,酒吧/小食,CBD,市中心 CBD,晚餐|宵夜,$$$,4.0,鸡尾酒吧+小食，适合饭后续摊,鸡尾酒|小食,适合饭后续摊的小酒吧,-33.8640,151.2080,确认,,收藏
+Macelleria,Macelleria,牛排/烧烤,Bondi（另有 Newtown 等店）,东部海滩,午餐|晚餐,$$,4.1,肉铺式餐厅，自选肉现烤,自选肉现场烤|配菜,肉铺式自选，随意,-33.8915,151.2710,较确定,有多家分店,收藏
+Morena,Morena,拉美菜,CBD（The Fullerton）,市中心 CBD,晚餐,$$$$,4.3,名厨 Alejandro Saravia 的秘鲁/拉美菜,秘鲁 ceviche|拉美炭烤,Fullerton 酒店老邮局楼里的拉美餐厅，雅致,-33.8678,151.2078,确认,,收藏
+Dolar Shop 豆捞坊,豆捞坊,火锅,Haymarket（Darling Square）,中国城/Haymarket,午餐|晚餐,$$$,4.1,上海豆捞坊一人一锅精致火锅,一人一锅|手打虾滑|精选牛肉,精致火锅，环境明亮,-33.8786,151.2012,较确定,原写作 豆捞坊,收藏
+Brazico,Brazico,巴西烤肉,未确认,位置待确认,晚餐,$$,,巴西菜/巴西烤肉,,,,,较确定,EatClub 有收录，地址未核实,收藏
+Fred's,Fred’s,现代澳洲菜,Paddington,东区内城,晚餐,$$$$,4.5,开放式农家厨房，按时令食材出菜,时令开放厨房菜|柴火烹饪,像农家大厨房一样温暖，适合约会和小聚,-33.8860,151.2310,确认,,收藏
+NOMAD,NOMAD|NOMAD Sydney,西班牙/地中海,Surry Hills,东区内城,午餐|晚餐,$$$,4.4,地中海炭火料理，自制芝士和炸丸子,自制芝士|炸丸子 croquettes|炭火料理,明亮的地中海炭火餐厅，有开放厨房,-33.8810,151.2095,确认,,收藏
+Olympus Dining,Olympus Dining,希腊菜,Redfern,南区内城,午餐|晚餐,$$$,4.4,纯白希腊风，炭烤海鲜和羊肉,炭烤海鲜|烤羊|希腊前菜,纯白希腊风大庭院，像度假，出片,-33.8920,151.2050,确认,,收藏
+The Grill at The International,The grill,牛排/烧烤,CBD,市中心 CBD,午餐|晚餐,$$$$,4.4,Merivale 高空牛排馆,,,-33.8650,151.2075,猜测,名字常见，按最有名的 The Grill at The International 猜测；坐标为大致位置,收藏
+Taste of Turkey,Taste of Turkey,中东/埃及菜,Newtown,内西区,午餐|晚餐,$,3.9,土耳其 gozleme 和烤肉,土耳其薄饼 gozleme|烤肉,街边小店，便宜随意,-33.8970,151.1805,较确定,,收藏
+The Sanderson,The Sanderson,现代澳洲菜,CBD（285 George St）,市中心 CBD,午餐|晚餐,$$$,4.2,百年百货公司老楼改造的现代澳洲菜,现代澳洲菜|鸡尾酒,百年百货老楼改造，空间大,-33.8665,151.2070,确认,,收藏
+Karrywang Chef,Karrywang Chef,未确认,未确认,位置待确认,,,,,,,,,猜测,网上没找到，请补充,收藏
+Shell House,Shell House,现代澳洲菜,CBD（Margaret St）,市中心 CBD,午餐|晚餐|宵夜,$$$$,4.4,钟楼大楼里的餐厅+屋顶 Sky Bar,现代澳洲菜|屋顶 Sky Bar 鸡尾酒,历史钟楼大楼，屋顶酒吧看城市，适合约会,-33.8650,151.2060,确认,,收藏
+Aalia,AALIA,中东/埃及菜,CBD（Martin Place）,市中心 CBD,午餐|晚餐,$$$$,4.6,中东 fine dining，多次获奖,中东品尝菜单|炭烤肉|中东甜点,精致中东 fine dining，适合庆祝,-33.8675,151.2095,确认,,收藏
+Chophouse,Chophouse|Chophouse Sydney,牛排/烧烤,CBD（Bligh St）,市中心 CBD,午餐|晚餐,$$$,4.2,经典牛排馆，商务聚餐,牛排|经典配菜,经典牛排馆，商务聚餐,-33.8657,151.2105,确认,,收藏
+Bistecca,Bistecca,牛排/烧烤,CBD（Dalley St）,市中心 CBD,晚餐,$$$$,4.6,佛罗伦萨 T 骨牛排，无手机氛围,佛罗伦萨 T 骨牛排 bistecca alla fiorentina,无手机、暗灯的地下餐厅，很有仪式感,-33.8630,151.2085,确认,,收藏
+TOKI Bistro & Bar,TOKI,日料,North Sydney,北岸,晚餐,$$$$,4.2,日式融合 10 道式套餐,,,-33.8395,151.2075,猜测,也可能是 Surry Hills 的韩餐 Tokki，请确认,收藏
+Ananas Bar & Brasserie,Ananas,法餐,The Rocks,环形码头/The Rocks/Barangaroo,午餐|晚餐,$$$,4.2,华丽法式 brasserie，生蚝和海鲜塔,生蚝|海鲜塔|法式牛排,华丽复古的法式 brasserie，适合庆祝,-33.8593,151.2075,确认,,收藏
+BahBQ Brazilian Grill,BahBQ,巴西烤肉,Crows Nest,北岸,晚餐,$$$,4.0,巴西烤肉无限续,巴西烤肉无限续|菠萝烤,热闹，适合大胃王聚会,-33.8260,151.1990,确认,,收藏
+Joji,Joji,日料,CBD（屋顶）,市中心 CBD,晚餐|宵夜,$$$,4.1,日式屋顶 robata 炭烤+酒吧,robata 炭烤|鸡尾酒,屋顶日式酒吧+餐厅，城市景观,-33.8645,151.2070,较确定,坐标为大致位置,收藏
+Sydney Eels BBQ,Sydney Eels BBQ,韩餐,Homebush,西区,晚餐,$$,3.9,韩式烤鳗鱼专门店,炭烤鳗鱼|鳗鱼饭,韩式烤鳗鱼专门店，家常,-33.8660,151.0825,确认,,收藏
+Hanwoo,Hanwoo,韩餐,未确认,位置待确认,晚餐,$$$,,韩牛烤肉,,,,,猜测,没找到明确门店，请补充,收藏
+Joie Brasserie,Joie Brasserie,法餐,Chatswood,北岸,午餐|晚餐,$$$,4.1,北岸新开的法式 brasserie,法式经典菜|甜点,北岸新开的法式小馆,-33.7970,151.1830,确认,,收藏
+Mama Mulan,Mama Mulan,中餐,Chatswood,北岸,午餐|晚餐,$$,4.1,摩登中菜，北京烤鸭和点心,北京烤鸭|点心|小笼包,摩登中式装修，适合家庭聚餐,-33.7972,151.1805,确认,,收藏
+Délisia Panino & Espresso,Delisia Panino,意大利菜,Glebe,内西区,早餐|午餐,$,4.3,超大份意式帕尼尼三明治,超大份意式帕尼尼,外带小店,-33.8790,151.1860,确认,,收藏
+Bathers Coogee,Bathers Coogee,现代澳洲菜,Coogee,东部海滩,早午餐|午餐|晚餐,$$,3.8,海滩边的休闲餐厅,海鲜|现代澳洲菜,海滩边，看海放松,-33.9205,151.2580,较确定,,收藏
+THEECA,THEECA,咖啡/早午餐,Darlinghurst,东区内城,早餐|早午餐|晚餐,$$,4.2,白天咖啡早午餐，晚上变酒吧,早午餐|咖啡|晚间鸡尾酒,白天咖啡晚上酒吧,-33.8775,151.2170,确认,,收藏
+Single O Surry Hills,Single O Surry Hills,咖啡/早午餐,Surry Hills,东区内城,早餐|早午餐,$$,4.4,悉尼精品咖啡代表之一，自助咖啡龙头很有名,精品咖啡|自助咖啡龙头|早午餐,Surry Hills 经典咖啡店，有活力,-33.8820,151.2090,确认,,收藏
+S'more,S'more,亚洲融合,Castlecrag,北岸,午餐|晚餐,$$$,4.3,北岸的亚洲融合小馆，口碑很好,亚洲融合小盘菜,北岸小馆，温馨,-33.8000,151.2230,确认,,收藏
+Cucina Porto,Cucina Porto,意大利菜,Pyrmont（The Star）,达令港/Pyrmont,午餐|晚餐,$$$,4.2,The Star 里的意式海鲜和手工面,海鲜意面|手工面,The Star 里的意餐,-33.8680,151.1950,确认,,想去
+Azuma,Azuma,日料,CBD（Chifley Plaza）,市中心 CBD,午餐|晚餐,$$$,4.2,老牌日料，商务午餐热门,寿司|日式定食,老牌日料，商务午餐,-33.8665,151.2115,较确定,,收藏
+Deus Cafe Camperdown,Deus Cafe Camperdown,咖啡/早午餐,Camperdown,内西区,早餐|早午餐|午餐,$$,4.1,摩托车品牌 Deus 的咖啡店，空间很酷,早午餐|咖啡,摩托车展示和工业风空间，很酷,-33.8880,151.1780,确认,,收藏
+Nanashi & Amahouse,Nanashi & Amahouse,日料,未确认,位置待确认,午餐|晚餐,$$,,日料,,,,,较确定,Google 地图里有收藏，网上没查到地址，请补上,收藏
+Kosta's Takeaway Circular Quay,Kosta's Takeaway Circular Quay,三明治/快餐,Circular Quay,环形码头/The Rocks/Barangaroo,早餐|午餐,$,4.4,希腊家常三明治和外卖，排队名店,希腊三明治|希腊家常菜,外带排队小店,-33.8615,151.2110,确认,,收藏
+Amuro,Amuro,日料,Darlinghurst,东区内城,晚餐|宵夜,$$$,4.4,以米为主题的日式酒吧，清酒选择多,米饭料理|清酒,以米为主题的日式酒吧，安静精致,-33.8790,151.2175,确认,,收藏
+Bourke Street Bakery Surry Hills,Bourke Street Bakery Surry Hills,甜品/咖啡,Surry Hills,东区内城,早餐|下午茶,$,4.4,悉尼面包店代表，香肠卷和挞必吃,猪肉茴香香肠卷|挞|酸种面包,街角面包店，外带为主,-33.8900,151.2135,确认,,想去
+Friggitoria,Friggitoria,意大利菜,Potts Point,东区内城,午餐|晚餐,$$,4.0,意大利街头炸物小店,意式炸物|炸饭团 arancini,小店，街头小吃,-33.8720,151.2245,较确定,,收藏
+Elements Smokehouse and Bar,Elements Smokehouse and Bar,牛排/烧烤,Darlinghurst,东区内城,午餐|晚餐,$$$,4.1,美式烟熏烤肉，Elements 集团 Darlinghurst 店,美式烟熏烤肉|猪肋排,休闲热闹,-33.8765,151.2180,确认,,收藏
+Sumibi Yakiniku,Sumibi Yakiniku,日料,未确认,位置待确认,晚餐,$$$,,炭火日式烤肉,,,,,较确定,"Google 地图显示店名后面有""formally…""（以前叫别的名字），网上没查到地址，请补上",收藏
+Spice Paradise,Spice Paradise,中餐,未确认,位置待确认,午餐|晚餐,$$,,湘菜,,,,,较确定,Google 地图里有收藏，网上没查到地址，请补上,收藏
+MuMian Dining,MuMian Dining,中餐,Darling Harbour,达令港/Pyrmont,午餐|晚餐,$$$,4.2,精致川菜，环境漂亮适合请客,精致川菜|水煮鱼,中式精致装修，适合请客,-33.8745,151.2005,确认,,收藏
+Poketto,poketto,咖啡/早午餐,未确认,位置待确认,早餐|早午餐,$$,,日式风格咖啡店,,,,,较确定,Google 地图里有收藏，地址未核实，请补上,想去
+Australian Meat Emporium,Australian Meat Emporium,牛排/烧烤,Alexandria,南区内城,午餐|晚餐,$$$,4.4,肉铺+餐厅，选好牛排现场煎,自选牛排现场煎|和牛,肉铺+餐厅，选肉很有趣,-33.9100,151.1960,确认,,收藏
+My Zakaya,My Zakaya,日料,Surry Hills,东区内城,晚餐|宵夜,$$,4.1,热闹的日式居酒屋,串烧|日式小菜,热闹居酒屋,-33.8850,151.2105,较确定,,想去
+Bella Brutta,Bella Brutta,意大利菜,Newtown,内西区,晚餐,$$,4.5,柴火披萨名店，饼底很有嚼劲,柴火披萨|意式小菜,Newtown 热门披萨店，热闹,-33.8955,151.1815,确认,,收藏
+Sacrebleu! Canelés & Co,Sacrebleu ! Canelés & Co,甜品/咖啡,Barangaroo（Crown Sydney）,环形码头/The Rocks/Barangaroo,早餐|下午茶,$$,4.3,法式可露丽专门店,法式可露丽 canelé,Crown 里的小甜品店,-33.8613,151.2022,确认,,收藏
+Kuro Bar & Dining,Kuro Bar & Dining,日料,CBD,市中心 CBD,午餐|晚餐|宵夜,$$$,4.2,现代日料+酒吧,现代日料|鸡尾酒,时髦的日料酒吧,-33.8660,151.2075,较确定,坐标为大致位置,收藏
+The Baxter Inn,The Baxter Inn,酒吧/小食,CBD（Clarence St）,市中心 CBD,宵夜,$$,4.6,地下威士忌酒吧，常年上榜世界最佳酒吧,威士忌|鸡尾酒,地下威士忌酒吧，昏暗热闹，常年上榜,-33.8690,151.2045,确认,,收藏
+Nichi Getsu Do,Nichi Getsu Dō,日料,CBD（Kent St）,市中心 CBD,午餐|晚餐,$,4.1,日式拉面,拉面,小拉面店，快捷,-33.8720,151.2040,较确定,,收藏
+Cardea,Cardea Sydney – Cocktail,酒吧/小食,Barangaroo,环形码头/The Rocks/Barangaroo,晚餐|宵夜,$$$,4.2,鸡尾酒+现场音乐,鸡尾酒|现场音乐,Barangaroo 的酒吧，适合夜晚,-33.8630,151.2015,确认,,收藏
+Chin Chin,Chin Chin,亚洲融合,Surry Hills,东区内城,午餐|晚餐,$$$,4.3,热闹的东南亚融合菜，适合朋友聚会,东南亚融合菜|咖喱|炸鸡,热闹、音乐大声，适合朋友聚会,-33.8795,151.2100,确认,,收藏
+The Evergreen,The Evergreen,亚洲融合,Chatswood,北岸,早午餐|午餐|晚餐,$$,4.0,韩式融合早午餐,韩式融合早午餐,明亮的早午餐店,-33.7968,151.1825,确认,,想去
+Hustlers.Syd,Hustlers.Syd,亚洲融合,CBD,市中心 CBD,晚餐|宵夜,$$$,4.1,泛亚洲菜+酒吧，氛围热闹,泛亚洲菜|鸡尾酒,热闹的酒吧餐厅,-33.8700,151.2075,较确定,坐标为大致位置,想去
+Yakitori Yurippi,Yakitori Yurippi,日料,Crows Nest,北岸,晚餐,$$,4.4,北岸人气串烧店,鸡肉串烧|居酒屋小菜,热闹的串烧店，北岸人气,-33.8265,151.2015,确认,,想去
+Bar Besuto,Bar Besuto (Private Whisky),酒吧/小食,Circular Quay,环形码头/The Rocks/Barangaroo,宵夜,$$$$,4.4,东京风格的私藏日本威士忌酒吧,日本威士忌|鸡尾酒,东京风格小酒吧，私密,-33.8622,151.2100,确认,,想去
+Maybe Sammy,Maybe Sammy,酒吧/小食,The Rocks,环形码头/The Rocks/Barangaroo,宵夜,$$$,4.6,世界50佳酒吧之一，复古好莱坞风,创意鸡尾酒,复古好莱坞风，世界50佳酒吧,-33.8600,151.2075,确认,,想去
+Mjølner,Mjølner Sydney,牛排/烧烤,Redfern,南区内城,晚餐,$$$,4.3,维京主题地下餐厅+威士忌,战斧牛排|维京风格烤肉|威士忌,维京主题地下餐厅，很有氛围，适合约会和庆祝,-33.8880,151.2040,确认,,想去
+Pino Vino e Cucina Alexandria,Pino Vino e Cucina Alexandria,意大利菜,Alexandria,南区内城,午餐|晚餐,$$$,4.2,意式海鲜和手工面,海鲜意面|手工面,街区意餐,-33.9060,151.1980,较确定,坐标为大致位置,想去
+BLACK Bar & Grill,BLACK Bar & Grill,牛排/烧烤,Pyrmont（The Star）,达令港/Pyrmont,晚餐,$$$$,4.3,The Star 里的高端牛排馆,干式熟成牛排|和牛,The Star 里的高端牛排馆，能看海港,-33.8685,151.1945,确认,,想去
+Ester,Ester Restaurant,现代澳洲菜,Chippendale,南区内城,晚餐,$$$$,4.6,柴火烤炉现代澳洲菜，多次上榜,柴火烤菜|发酵调味料理,工业风开放厨房，口碑很高,-33.8865,151.1985,确认,,想去
+LuMi Dining,LuMi Dining,日料,Pyrmont（Jones Bay Wharf）,达令港/Pyrmont,晚餐,$$$$,4.6,日意融合 fine dining，海港边,日意融合品尝菜单,海港边 fine dining，安静精致,-33.8645,151.1945,确认,,收藏
+Rengaya,Rengaya,日料,North Sydney,北岸,午餐|晚餐,$$$,4.2,老牌日式烤肉+寿司,日式烤肉|寿司,老牌日式烤肉,-33.8385,151.2070,确认,,收藏
+Tajima Yakiniku,Tajima Yakiniku,日料,CBD,市中心 CBD,晚餐,$$$,4.0,日式烤肉,和牛烧肉,日式烤肉,-33.8745,151.2060,较确定,坐标为大致位置,想去
+TenTo,TenTo,日料,Surry Hills,东区内城,午餐|晚餐,$$,4.3,天妇罗专门店,天妇罗套餐,天妇罗专门店，吧台看现炸,-33.8860,151.2115,确认,,收藏
+Shinmachi Newtown,Shinmachi Newtown,日料,Newtown,内西区,晚餐,$$,4.2,日式居酒屋,串烧|居酒屋小菜,热闹的居酒屋,-33.8985,151.1785,确认,,收藏
+Kagoshima Master Yakiniku,Kagoshima Master Yakiniku,日料,Crows Nest（另有 Ultimo 店）,北岸,晚餐,$$$,4.2,鹿儿岛和牛烧肉,鹿儿岛和牛烧肉,日式烤肉,-33.8255,151.2005,较确定,有两家店，不确定收藏的是哪家,想去
+The Eight,The Eight,中餐,Haymarket（Market City）,中国城/Haymarket,午餐|晚餐,$$,4.1,大型港式点心楼，早茶热门,港式点心|烧味|海鲜,大型点心楼，早茶热门，适合家庭聚餐,-33.8800,151.2045,确认,,收藏
+Yuzu,Yuzu pyrmont,日料,Pyrmont,达令港/Pyrmont,午餐|晚餐,$$,4.0,Pyrmont 的日料小馆,日式小菜|寿司,Pyrmont 的日料小馆,-33.8705,151.1945,较确定,,想去
+The Goodsline Pyrmont,The Goodsline Pyrmont,未确认,Pyrmont,位置待确认,,,,,,,,,猜测,Google 地图里有收藏，但网上没查到这家店，请确认,想去

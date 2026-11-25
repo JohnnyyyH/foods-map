@@ -105,11 +105,19 @@ button,select,input{font:inherit;color:inherit}
 .far .pin b::after{display:none}
 .far .pin.active b{width:20px;height:20px;background:var(--ink)}
 .pin-wrap{background:none;border:0}
+.pname{display:none;position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12px/1.2 var(--f-body);color:#202124;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;pointer-events:none}
+.near .pname{display:block}
+.near .pname.hide{display:none}
+.pin.active .pname{color:var(--brand)}
+.sig{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.sig b{color:var(--ink);font-weight:600}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* detail sheet */
 .sheet{position:fixed;z-index:3000;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--surface);box-shadow:-8px 0 40px rgba(0,0,0,.18);overflow-y:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 .hero{height:170px;position:relative;display:flex;align-items:flex-end;padding:18px max(22px,env(safe-area-inset-right,0px)) 18px 22px;color:#fff}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.55))}
+.hero.photo .mono{display:none}
 .hero .mono{position:absolute;right:18px;top:10px;font-family:var(--f-display);font-size:96px;opacity:.22;line-height:1}
 .hero .kick{position:relative;z-index:1;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
 .x{position:absolute;z-index:2;top:max(12px,env(safe-area-inset-top,0px));left:12px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:#16181D;font-size:20px;line-height:1;cursor:pointer}
@@ -131,6 +139,18 @@ button,select,input{font:inherit;color:inherit}
 .actions a{display:block;text-align:center;text-decoration:none;font-weight:600;border-radius:8px;padding:12px}
 .a1{background:var(--brand);color:#fff}
 .a2{border:1px solid var(--line);color:var(--ink)}
+.hero.photo{height:240px;background-size:cover;background-position:center}
+.gal{display:flex;gap:6px;overflow-x:auto;padding:8px max(22px,env(safe-area-inset-right,0px)) 0 22px;scrollbar-width:none}
+.gal button{flex:0 0 auto;width:76px;height:58px;border-radius:6px;border:2px solid transparent;padding:0;overflow:hidden;cursor:pointer;background:var(--soft)}
+.gal button.on{border-color:var(--brand)}
+.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.credit{font-size:11px;color:var(--muted);padding:4px 22px 0}
+.credit a{color:inherit}
+.gload{font-size:12.5px;color:var(--muted);padding:8px 22px 0}
+.grate{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted)}
+.grate b{color:var(--ink);font-size:15px}
+.dishes{display:flex;flex-wrap:wrap;gap:6px}
+.dish{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13.5px}
 .scrim{position:fixed;inset:0;z-index:2999;background:rgba(0,0,0,.28)}
 
 @media (max-width:860px){
@@ -220,6 +240,7 @@ button,select,input{font:inherit;color:inherit}
 <aside class="sheet" id="sheet" hidden aria-label="餐厅详情"></aside>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="config.js"></script>
 <script>
 (function(){
 const MEALS=["早餐","早午餐","午餐","下午茶","晚餐","宵夜"];
@@ -274,12 +295,24 @@ function initMap(){
     const n=document.createElement("div");n.className="tilenote";n.textContent="这个预览环境加载不了底图，先用区域名代替；在正式网址上会显示完整地图。";$("map").appendChild(n);
     SUBURBS.forEach(([s,lat,lng])=>L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:"leaflet-div-icon",html:'<span class="sub-label">'+s+'</span>',iconSize:[0,0]})}).addTo(map));});}
   tiles.on("tileload",()=>{loaded=true});
-  const zc=()=>$("map").classList.toggle("far",map.getZoom()<15);
-  map.on("zoomend",zc);zc();
+  const zc=()=>{const z=map.getZoom();$("map").classList.toggle("far",z<15);$("map").classList.toggle("near",z>=15);declutter()};
+  map.on("zoomend",zc);map.on("moveend",declutter);zc();
 }
+// Like Google Maps: show names when zoomed in, but hide a label that would overlap a better-rated one.
+let dcT=0;
+function declutter(){clearTimeout(dcT);dcT=setTimeout(()=>{
+  if(!map||map.getZoom()<15)return;
+  const pins=[...document.querySelectorAll("#map .pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.n&&p.d);
+  pins.forEach(p=>p.n.classList.remove("hide"));
+  pins.sort((a,b)=>(b.el.classList.contains("active")-a.el.classList.contains("active"))||(b.d.scoreN||0)-(a.d.scoreN||0));
+  const kept=pins.map(p=>p.el.querySelector("b").getBoundingClientRect());
+  const hit=(a,b)=>a.left<b.right+2&&a.right+2>b.left&&a.top<b.bottom&&a.bottom>b.top;
+  pins.forEach(p=>{const r=p.n.getBoundingClientRect();if(kept.some(k=>hit(r,k)))p.n.classList.add("hide");else kept.push(r)});
+},60)}
+const short=n=>n.replace(/（.*?）|\(.*?\)/g,"").trim();
 function pinIcon(d){
   const label=d.scoreN?d.scoreN.toFixed(1):"·";
-  return L.divIcon({className:"pin-wrap",iconSize:[0,0],html:`<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}"><b>${label}</b></div>`});
+  return L.divIcon({className:"pin-wrap",iconSize:[0,0],html:`<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}"><b>${label}</b><span class="pname">${esc(short(d.name))}</span></div>`});
 }
 
 /* ---------- filters ---------- */
@@ -331,36 +364,79 @@ function render(){
       <span class="thumb" style="background:${color(d.cuisine)}"><span>${esc(mono(d.name))}</span><small>${esc(d.cuisine)}</small></span>
       <span class="cbody"><span class="cname">${esc(d.name)}${flag}</span>${rating}<span class="meta">${meta}</span>
       ${d.highlights?`<span class="hl1">${esc(d.highlights)}</span>`:""}
+      ${d.sigA.length?`<span class="sig"><b>招牌</b> ${d.sigA.map(esc).join("、")}</span>`:""}
       ${d.mealsA.length?`<span class="slots">${d.mealsA.map(m=>`<span class="slot">${esc(m)}</span>`).join("")}</span>`:""}</span></button>`}).join("");
   box.querySelectorAll(".card").forEach(c=>{const id=+c.dataset.id;c.onclick=()=>open(id,true);c.onmouseenter=()=>hl(id,true);c.onmouseleave=()=>hl(id,false)});
   if(map){Object.entries(markers).forEach(([id,m])=>{if(ids.has(+id)){if(!map.hasLayer(m))m.addTo(map)}else if(map.hasLayer(m))map.removeLayer(m)});
     const pts=f.filter(d=>d.lat).map(d=>[d.lat,d.lng]);
-    if(any&&pts.length)map.fitBounds(pts,{padding:[40,40],maxZoom:15});}
+    if(any&&pts.length)map.fitBounds(pts,{padding:[40,40],maxZoom:15});declutter();}
 }
 function hl(id,on){const el=document.querySelector(`[data-pin="${id}"]`);if(el&&id!==activeId)el.classList.toggle("active",on);if(on&&markers[id])markers[id].setZIndexOffset(1000);else if(markers[id]&&id!==activeId)markers[id].setZIndexOffset(0)}
 
 function open(id,pan){
   const prev=activeId;activeId=id;const d=data.find(x=>x.id===id);if(!d)return;
   document.querySelectorAll(".card").forEach(c=>c.classList.toggle("active",+c.dataset.id===id));
-  [prev,id].forEach(k=>{if(k!=null&&markers[k]){markers[k].setIcon(pinIcon(data[k]));markers[k].setZIndexOffset(k===id?1000:0)}});
+  [prev,id].forEach(k=>{if(k!=null&&markers[k]){markers[k].setIcon(pinIcon(data[k]));markers[k].setZIndexOffset(k===id?1000:0)}});declutter();
   if(map&&d.lat&&pan)map.setView([d.lat,d.lng],Math.max(map.getZoom(),15),{animate:true});
   const q=encodeURIComponent(d.name.replace(/（.*?）/g,"")+" "+d.area.replace(/（.*?）|\(.*?\)/g,"")+" Sydney");
   const c=color(d.cuisine);
   $("sheet").innerHTML=`
-    <div class="hero" style="background:${c}"><span class="mono">${esc(mono(d.name))}</span><button class="x" type="button" aria-label="关闭">×</button><span class="kick">${esc(d.cuisine)} · ${esc(d.region)}</span></div>
+    <div class="hero" style="background:${c}"><span class="mono">${esc(mono(d.name))}</span><button class="x" type="button" aria-label="关闭">×</button><span class="kick">${esc(d.cuisine)} · ${esc(d.region)}</span></div><div id="gal"></div>
     <div class="sbody">
       <div><h3>${esc(d.name)}</h3><div class="sline" style="margin-top:6px"><span>${esc(d.area)}</span>${d.price?`<span>${esc(d.price)}</span>`:""}${d.confidence?`<span>信息：${esc(d.confidence)}</span>`:""}</div></div>
       ${d.scoreN?`<div class="bigscore"><span class="n">${d.scoreN.toFixed(1)}</span><span>${stars(d.scoreN)}<div class="t">打卡指数（综合网上评价与餐厅特色，满分 5）</div></span></div>`:`<div class="bigscore"><span class="t">暂未评分，等确认是哪家店后补上</span></div>`}
       ${d.mealsA.length?`<div class="sec"><h4>推荐时段</h4><div class="slots lg">${d.mealsA.map(m=>`<span class="slot">${esc(m)}</span>`).join("")}</div></div>`:""}
+      <div class="grate" id="grate" hidden></div>
       ${d.highlights?`<div class="sec"><h4>为什么值得去</h4><p>${esc(d.highlights)}</p></div>`:""}
+      ${d.sigA.length?`<div class="sec"><h4>招牌菜</h4><div class="dishes">${d.sigA.map(x=>`<span class="dish">${esc(x)}</span>`).join("")}</div></div>`:""}
+      ${d.vibe?`<div class="sec"><h4>环境和氛围</h4><p>${esc(d.vibe)}</p></div>`:""}
       <div class="sec"><h4>信息</h4><dl class="facts">
         <dt>菜系</dt><dd>${esc(d.cuisine||"—")}</dd><dt>区域</dt><dd>${esc(d.region||"—")}</dd><dt>位置</dt><dd>${esc(d.area||"—")}</dd><dt>人均</dt><dd>${esc(d.price||"—")}</dd><dt>状态</dt><dd>${esc(d.status||"收藏")}</dd>
         ${d.original_names?`<dt>收藏时写作</dt><dd>${esc(split(d.original_names).join("、"))}</dd>`:""}</dl></div>
       ${d.note?`<div class="notebox">${esc(d.note)}</div>`:""}
-      <div class="actions"><a class="a1" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">在 Google 地图打开</a><a class="a2" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">搜索评价和菜单</a></div>
+      <div class="actions"><a class="a1" id="gmlink" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">在 Google 地图打开（看更多照片和评论）</a><a class="a2" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">搜索评价和菜单</a></div>
     </div>`;
   $("sheet").hidden=false;$("scrim").hidden=false;$("sheet").scrollTop=0;
   $("sheet").querySelector(".x").onclick=close;$("sheet").querySelector(".x").focus({preventScroll:true});
+  photos(d);
+}
+
+/* ---------- Google photos (only when config.js has a key) ---------- */
+const KEY=(window.FOODSMAP_GOOGLE_KEY||"").trim();
+let gp=null;const gcache={};
+function places(){
+  if(!gp)gp=new Promise((res,rej)=>{window.__foodsmapGmaps=res;const s=document.createElement("script");
+    s.src="https://maps.googleapis.com/maps/api/js?key="+encodeURIComponent(KEY)+"&v=weekly&loading=async&language=zh-CN&region=AU&callback=__foodsmapGmaps";
+    s.async=true;s.onerror=rej;document.head.appendChild(s)}).then(()=>google.maps.importLibrary("places"));
+  return gp;
+}
+async function lookup(d){
+  if(gcache[d.id])return gcache[d.id];
+  const {Place}=await places();
+  const bias=d.lat?{center:{lat:d.lat,lng:d.lng},radius:400}:{center:{lat:-33.87,lng:151.2},radius:30000};
+  const {places:found}=await Place.searchByText({textQuery:short(d.name)+" "+short(d.area)+" Sydney",locationBias:bias,maxResultCount:1,
+    fields:["displayName","photos","rating","userRatingCount","googleMapsURI"]});
+  return gcache[d.id]=found&&found[0]||null;
+}
+async function photos(d){
+  if(!KEY)return;
+  const gal=$("gal");if(!gal)return;
+  gal.innerHTML='<div class="gload">正在从 Google 地图加载照片…</div>';
+  let p;try{p=await lookup(d)}catch(e){if(activeId===d.id)gal.innerHTML="";console.warn("Google Places",e);return}
+  if(activeId!==d.id||$("sheet").hidden)return;
+  if(!p){gal.innerHTML='<div class="gload">Google 地图上没找到这家店的照片。</div>';return}
+  if(p.googleMapsURI)$("gmlink").href=p.googleMapsURI;
+  if(p.rating){const g=$("grate");g.hidden=false;g.innerHTML=`<span>Google 评分</span><b>${p.rating.toFixed(1)}</b>${stars(p.rating)}<span>${(p.userRatingCount||0).toLocaleString()} 条评价</span>`}
+  const ph=(p.photos||[]).slice(0,5);
+  if(!ph.length){gal.innerHTML="";return}
+  const urls=ph.map(x=>x.getURI({maxWidth:800,maxHeight:600}));
+  const credit=i=>{const a=(ph[i].authorAttributions||[])[0];return `照片来自 Google 地图${a?` · <a href="${esc(a.uri)}" target="_blank" rel="noopener">${esc(a.displayName)}</a>`:""}`};
+  const hero=$("sheet").querySelector(".hero");
+  const show=i=>{hero.classList.add("photo");hero.style.backgroundImage=`url("${urls[i]}")`;
+    gal.querySelectorAll("button").forEach((b,j)=>b.classList.toggle("on",i===j));gal.querySelector(".credit").innerHTML=credit(i)};
+  gal.innerHTML=`<div class="gal">${urls.map((u,i)=>`<button type="button" aria-label="照片 ${i+1}"><img src="${esc(u)}" alt="" loading="lazy"></button>`).join("")}</div><div class="credit"></div>`;
+  gal.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>show(i));
+  show(0);
 }
 function close(){$("sheet").hidden=true;$("scrim").hidden=true}
 $("scrim").onclick=close;
@@ -369,8 +445,8 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
 /* ---------- boot ---------- */
 initMap();
 fetch("restaurants.csv",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.text()}).then(t=>{
-  data=parseCSV(t).map((d,i)=>({...d,id:i,scoreN:parseFloat(d.score)||0,mealsA:split(d.meals),lat:parseFloat(d.lat)||null,lng:parseFloat(d.lng)||null,
-    hay:[d.name,d.original_names,d.cuisine,d.area,d.region,d.highlights].join(" ").toLowerCase()}));
+  data=parseCSV(t).map((d,i)=>({...d,id:i,scoreN:parseFloat(d.score)||0,mealsA:split(d.meals),sigA:split(d.signature),lat:parseFloat(d.lat)||null,lng:parseFloat(d.lng)||null,
+    hay:[d.name,d.original_names,d.cuisine,d.area,d.region,d.highlights,d.signature,d.vibe].join(" ").toLowerCase()}));
   $("tagline").textContent=`Johnny 的悉尼收藏餐厅 · ${data.length} 家`;
   if(map)data.forEach(d=>{if(!d.lat||!d.lng)return;
     const m=L.marker([d.lat,d.lng],{icon:pinIcon(d),title:d.name,riseOnHover:true});

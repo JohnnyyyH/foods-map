@@ -182,6 +182,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 .pin.cl .cn::after{content:"";position:absolute;left:50%;bottom:-6px;width:8px;height:8px;background:#1E1714;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateX(-50%) rotate(45deg)}
 .pin.cl:hover .cn,.pin.cl.hl .cn{background:var(--brand)}
 .pin.cl:hover .cn::after,.pin.cl.hl .cn::after{background:var(--brand)}
+.pin.cl.mini .cn{width:28px;height:28px;padding:0;justify-content:center;font-size:13px}
+.pin.cl.mini .cn i,.pin.cl.mini .cn small{display:none}
 .cpop{position:fixed;z-index:1400;background:var(--surface);color:var(--ink);border-radius:14px;box-shadow:0 10px 30px rgba(30,15,5,.28);padding:6px;min-width:220px;max-width:280px;max-height:300px;overflow-y:auto;animation:pdrop .14s ease-out}
 .cpop button{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;padding:8px;border-radius:10px;cursor:pointer}
 .cpop button:hover{background:var(--soft)}
@@ -191,12 +193,25 @@ button,a{-webkit-tap-highlight-color:transparent}
 .cpop .s{font-weight:800;font-size:13px}
 .pin-wrap{background:none;border:0}
 /* restaurant names: a white tag with dark bold text, so they never blend into Google's own grey street and place labels */
-.pname{display:block;position:absolute;left:calc(100% + 4px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12.5px/1.22 var(--f-body);color:#1E1714;background:#fff;border-radius:7px;padding:3px 7px;box-shadow:0 1px 2px rgba(30,15,5,.18),0 2px 6px rgba(30,15,5,.16);pointer-events:none;letter-spacing:-.005em}
+.pname{display:block;position:absolute;left:calc(100% + 4px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12.5px/1.22 var(--f-body);color:#1E1714;background:#fff;border-radius:7px;padding:3px 7px 3px 9px;box-shadow:inset 3px 0 0 var(--c,#E8452C),0 1px 2px rgba(30,15,5,.18),0 2px 6px rgba(30,15,5,.16);pointer-events:none;letter-spacing:-.005em}
+.pname.l,.pname.tl,.pname.bl{padding:3px 9px 3px 7px;box-shadow:inset -3px 0 0 var(--c,#E8452C),0 1px 2px rgba(30,15,5,.18),0 2px 6px rgba(30,15,5,.16)}
 .pname.hide{display:none}
+.pname s{display:none;text-decoration:none;color:#D9480F;font-weight:800;margin-left:5px;font-variant-numeric:tabular-nums}
+.pin.mini .pname s{display:inline}
+.pname.nw{max-width:86px!important}
+.meas .pname{max-width:none!important;white-space:nowrap}
+.pin.mini b{width:26px;height:26px;padding:0;justify-content:center;gap:0;font-size:0}
+.pin.mini b i{font-size:14px}
 .pname.l{left:auto;right:calc(100% + 5px);text-align:right}
 .pname.b{left:50%;top:calc(100% + 7px);transform:translateX(-50%);text-align:center}
 .pname.t{left:50%;top:auto;bottom:calc(100% + 3px);transform:translateX(-50%);text-align:center}
+.pname.tr{left:calc(100% - 2px);top:auto;bottom:calc(100% - 6px);transform:none}
+.pname.br{left:calc(100% - 2px);top:calc(100% - 4px);transform:none}
+.pname.tl{left:auto;right:calc(100% - 2px);top:auto;bottom:calc(100% - 6px);transform:none;text-align:right}
+.pname.bl{left:auto;right:calc(100% - 2px);top:calc(100% - 4px);transform:none;text-align:right}
+@media (max-width:860px){.pname{font-size:12px;max-width:118px;padding:2px 6px 2px 8px}.pname.l,.pname.tl,.pname.bl{padding:2px 8px 2px 6px}}
 .pin.active .pname,.pin:hover .pname{background:var(--brand);color:#fff}
+.pin.active .pname s,.pin:hover .pname s{color:#fff}
 .sig{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .sig b{color:var(--ink);font-weight:600}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -452,57 +467,93 @@ function gmaps(){
 const short=n=>n.replace(/（.*?）|\(.*?\)/g,"").trim();
 function pinHTML(d){
   const label=d.scoreN?d.scoreN.toFixed(1):"·";
-  return `<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}" style="--c:${color(d.cuisine)}"><b><i>${emo(d.cuisine)}</i>${label}</b><span class="pname">${esc(short(d.name))}</span></div>`;
+  return `<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}" style="--c:${color(d.cuisine)}"><b><i>${emo(d.cuisine)}</i>${label}</b><span class="pname">${esc(short(d.name))}${d.scoreN?`<s>${d.scoreN.toFixed(1)}</s>`:""}</span></div>`;
 }
 function zoomClass(z){declutter()}
 let dcT=0,zooming=false,clusters={},memberOf={};
 // While the map animates a zoom, every pin is a small dot so nothing piles up; the full layout comes back once it settles.
-function shrinkAll(){zooming=true;clearTimeout(dcT);closeCpop();document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");el.classList.remove("cl","inc");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
+function shrinkAll(){zooming=true;clearTimeout(dcT);closeCpop();document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");el.classList.remove("cl","inc","mini");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
 function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(layoutPins,60)}
 // Every restaurant on screen shows its emoji, score and name. When two can't both fit (at any zoom), the lower-priority one
 // joins the nearer one as a numbered group (like Google / Airbnb maps); tapping the group zooms in until they separate.
 function layoutPins(){
   const mapEl=$("map"),mb=mapEl.getBoundingClientRect();closeCpop();
   const all=[...mapEl.querySelectorAll(".pin")].map(el=>({el,b:el.querySelector("b"),n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.b);
-  all.forEach(p=>{p.el.classList.remove("dot","cl","inc","hl");if(p.n)p.n.className="pname";const c=p.el.querySelector(".cn");if(c)c.remove()});
+  all.forEach(p=>{p.el.classList.remove("dot","cl","inc","hl","mini","nw");if(p.n)p.n.className="pname";const c=p.el.querySelector(".cn");if(c)c.remove()});
   clusters={};memberOf={};
   const pins=all.filter(p=>p.el.offsetParent);
-  pins.forEach(p=>{p.r=p.b.getBoundingClientRect();p.w=p.n?p.n.offsetWidth:0;p.h=p.n?p.n.offsetHeight:0});
+  // measure each name on one line, then work out its size when wrapped to the tag's max width
+  mapEl.classList.add("meas");pins.forEach(p=>{p.r=p.b.getBoundingClientRect();p.nat=p.n?p.n.offsetWidth:0;p.lh=p.n?p.n.offsetHeight:0});mapEl.classList.remove("meas");
+  const cs=pins.length&&pins[0].n?getComputedStyle(pins[0].n):null,MW=cs?parseFloat(cs.maxWidth)||150:150,
+    PX=cs?parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight):14,PY=cs?parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom):6;
+  const tag=(p,extra,max)=>{const nat=p.nat+extra,w=Math.min(nat,max),lines=Math.max(1,Math.ceil((nat-PX)/(max-PX)-.02)),lh=p.lh-PY;return [w+1,lines*lh+PY+(lines>1?2:0)]};
   const pad=160,view=pins.filter(p=>p.r.right>mb.left-pad&&p.r.left<mb.right+pad&&p.r.bottom>mb.top-pad&&p.r.top<mb.bottom+pad);
   view.sort((a,b)=>((b.d.id===activeId)-(a.d.id===activeId))||(b.d.scoreN||0)-(a.d.scoreN||0)||a.d.id-b.d.id);
   const hit=(a,b,m=3)=>a.left<b.right+m&&a.right+m>b.left&&a.top<b.bottom+m&&a.bottom+m>b.top;
   const inMap=x=>x.left>=mb.left+2&&x.right<=mb.right-2&&x.top>=mb.top+2&&x.bottom<=mb.bottom-2;
   const ctr=x=>[(x.left+x.right)/2,(x.top+x.bottom)/2];
   const placed=[];
-  const join=(it,p)=>{if(!it.members.length){it.lab=null;it.box={left:it.box.left-8,right:it.box.right+8,top:it.box.top-2,bottom:it.box.bottom+2}}it.members.push(p)};
+  // a group bubble ("🍣🥩 4 家") is ~84px wide, centred where the leader's pill was
+  const join=(it,p)=>{if(!it.members.length)it.lab=null;it.members.push(p)};  // the group bubble takes the leader's spot and size
+  const sides=(r,w,h)=>{const [cx,cy]=ctr(r);return [["",{left:r.right+4,right:r.right+4+w,top:cy-h/2,bottom:cy+h/2}],
+    ["l",{left:r.left-4-w,right:r.left-4,top:cy-h/2,bottom:cy+h/2}],
+    ["tr",{left:r.right-2,right:r.right-2+w,top:r.top+6-h,bottom:r.top+6}],
+    ["br",{left:r.right-2,right:r.right-2+w,top:r.bottom-4,bottom:r.bottom-4+h}],
+    ["tl",{left:r.left+2-w,right:r.left+2,top:r.top+6-h,bottom:r.top+6}],
+    ["bl",{left:r.left+2-w,right:r.left+2,top:r.bottom-4,bottom:r.bottom-4+h}],
+    ["b",{left:cx-w/2,right:cx+w/2,top:r.bottom+8,bottom:r.bottom+8+h}],
+    ["t",{left:cx-w/2,right:cx+w/2,top:r.top-4-h,bottom:r.top-4}]]};
+  const MINI=26,NW=86,miniBox=p=>{const [cx]=ctr(p.r);return {left:cx-MINI/2,right:cx+MINI/2,top:p.r.bottom-MINI,bottom:p.r.bottom}};
+  // name-tag sizes: as measured, with the score added (badge), or wrapped into a narrow column
+  const tagFull=p=>tag(p,0,MW),tagMini=p=>tag(p,30,MW),tagNarrow=p=>tag(p,30,NW);
+  const pills=()=>placed.map(it=>it.box),B=()=>placed.flatMap(it=>it.lab?[it.box,it.lab]:[it.box]);
+  const area=(a,b)=>Math.max(0,Math.min(a.right,b.right)-Math.max(a.left,b.left))*Math.max(0,Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top));
+  const tryAt=(p,box,[w,h],cls,force)=>{const bl=B();if(!force&&bl.some(k=>hit(box,k)))return null;
+    const opts=sides(box,w,h),free=opts.filter(([,x])=>!bl.some(k=>hit(x,k)));let o=free.find(([,x])=>inMap(x))||free[0];
+    if(!o){if(!force)return null;
+      // last resort: the side that covers the least of other names and none of the pins
+      const pb=pills();o=opts.map(op=>[op,(pb.some(k=>hit(op[1],k))?1e6:0)+bl.reduce((a,k)=>a+area(op[1],k),0)+(inMap(op[1])?0:500)]).sort((a,b)=>a[1]-b[1])[0][0]}
+    return {p,box,lab:o[1],side:o[0],cls,tw:w,th:h,active:p.d.id===activeId,members:[]}};
+  // move the names of the pins in the way to another side, to make room for a new pin; undo if any can't move
+  const relabel=(box)=>{const qs=placed.filter(it=>it.lab&&hit(box,it.lab)&&!hit(box,it.box)&&!it.members.length);
+    if(!qs.length||placed.some(it=>hit(box,it.box)))return null;
+    const saved=qs.map(q=>[q,q.lab,q.side]);qs.forEach(q=>q.lab=null);
+    for(const q of qs){const bl=[...B(),box];const fr=sides(q.box,q.tw,q.th).filter(([,x])=>!bl.some(k=>hit(x,k)));const o=fr.find(([,x])=>inMap(x))||fr[0];
+      if(!o){saved.forEach(([q,l,sd])=>{q.lab=l;q.side=sd});return null}q.lab=o[1];q.side=o[0]}
+    return ()=>saved.forEach(([q,l,sd])=>{q.lab=l;q.side=sd})};
   for(const p of view){
-    const r=p.r,act=p.d.id===activeId;
-    // the open restaurant's pin never absorbs others; pins under it just sit beneath it
-    const host=placed.find(it=>!it.active&&(hit(r,it.box)||(it.lab&&hit(r,it.lab))));
-    if(host&&!act){join(host,p);continue}
-    const w=p.w,h=p.h,[cx,cy]=ctr(r);
-    const opts=[["",{left:r.right+4,right:r.right+4+w,top:cy-h/2,bottom:cy+h/2}],
-                ["l",{left:r.left-4-w,right:r.left-4,top:cy-h/2,bottom:cy+h/2}],
-                ["b",{left:cx-w/2,right:cx+w/2,top:r.bottom+8,bottom:r.bottom+8+h}],
-                ["t",{left:cx-w/2,right:cx+w/2,top:r.top-4-h,bottom:r.top-4}]];
-    const blockers=placed.flatMap(it=>it.lab?[it.box,it.lab]:[it.box]);
-    const free=opts.filter(([,x])=>!blockers.some(k=>hit(x,k)));
-    let o=free.find(([,x])=>inMap(x))||free[0];
-    if(!o&&!act){
-      // no side has room for the name: join the closest neighbour instead of losing the name
-      const near=placed.filter(it=>!it.active).map(it=>{const [x,y]=ctr(it.box);return [Math.hypot(x-cx,y-cy),it]}).sort((a,b)=>a[0]-b[0])[0];
-      if(near){join(near[1],p);continue}
+    if(p.d.id===activeId){placed.push(tryAt(p,p.r,tagFull(p),"",true));continue}
+    // full pill (emoji + score) first, then a compact emoji badge with the score moved into the name tag, then a narrower tag
+    const mb1=miniBox(p);
+    let pl=tryAt(p,p.r,tagFull(p),"")||tryAt(p,mb1,tagMini(p),"mini")||tryAt(p,mb1,tagNarrow(p),"mini nw");
+    for(const [box,tg,cls] of [[p.r,tagFull(p),""],[mb1,tagMini(p),"mini"],[mb1,tagNarrow(p),"mini nw"]]){
+      if(pl)break;const undo=relabel(box);if(!undo)continue;pl=tryAt(p,box,tg,cls);if(!pl)undo()}
+    if(!pl){
+      // two restaurants side by side: shrink the one in the way to a badge as well, so both keep their names
+      const hits=placed.filter(it=>hit(mb1,it.box)||(it.lab&&hit(mb1,it.lab)));
+      if(hits.length===1&&!hits[0].active&&!hits[0].members.length){
+        const q=hits[0],i=placed.indexOf(q);placed.splice(i,1);
+        const q2=tryAt(q.p,miniBox(q.p),tagMini(q.p),"mini")||tryAt(q.p,miniBox(q.p),tagNarrow(q.p),"mini nw");
+        if(q2){placed.push(q2);pl=tryAt(p,mb1,tagMini(p),"mini")||tryAt(p,mb1,tagNarrow(p),"mini nw");if(!pl)placed.pop()}
+        if(!pl)placed.splice(i,0,q);
+      }
     }
-    if(!o)o=opts[0];
-    placed.push({p,box:r,lab:o[1],side:o[0],active:act,members:[]});
+    if(pl){placed.push(pl);continue}
+    // badges that really sit on top of each other become one "N 家" group (tap to zoom in); otherwise keep the badge and its name
+    const [mx,my]=ctr(mb1);
+    const near=placed.filter(it=>!it.active).map(it=>{const [x,y]=ctr(it.box);return [Math.hypot(x-mx,y-my),it]}).sort((a,b)=>a[0]-b[0])[0];
+    if(near&&(near[0]<=64||hit(mb1,near[1].box))){join(near[1],p);continue}
+    const blocked=placed.find(it=>!it.active&&hit(mb1,it.box));
+    if(blocked){join(blocked,p);continue}
+    placed.push(tryAt(p,mb1,tagNarrow(p),"mini nw",true));
   }
   placed.forEach(it=>{
     const el=it.p.el;
-    if(!it.members.length){if(it.side)it.p.n.classList.add(it.side);if(M&&M.layer)M.layer(it.p.d.id,true);return}
+    if(!it.members.length){if(it.side)it.p.n.classList.add(it.side);if(it.cls){el.classList.add(...it.cls.split(" "));if(it.cls.includes("nw"))it.p.n.classList.add("nw")}if(M&&M.layer)M.layer(it.p.d.id,true);return}
     const ids=[it.p.d.id,...it.members.map(m=>m.d.id)];clusters[it.p.d.id]=ids;
     it.members.forEach(m=>{m.el.classList.add("inc");memberOf[m.d.id]=it.p.d.id});
-    const emos=[...new Set(ids.map(i=>emo(data[i].cuisine)))].slice(0,2).join("");
-    el.classList.add("cl");el.insertAdjacentHTML("beforeend",`<span class="cn"><i>${emos}</i>${ids.length}<small>家</small></span>`);
+    el.classList.add("cl");if(it.cls)el.classList.add("mini");
+    el.insertAdjacentHTML("beforeend",`<span class="cn" title="${ids.length} 家，点一下放大"><i>${emo(data[ids[0]].cuisine)}</i>${ids.length}<small>家</small></span>`);
     if(M&&M.layer)M.layer(it.p.d.id,true);
   });
 }
@@ -606,7 +657,7 @@ async function googleMap(){
       it.ll=new google.maps.LatLng(lat,lng);redraw()}
   };
 }
-window.FoodsMap={zoom:z=>M&&M.zoom(z)};  // handy for checking the map at each zoom level
+window.FoodsMap={zoom:z=>M&&M.zoom(z),groups:()=>clusters};  // handy for checking the map at each zoom level
 function addPins(){if(!M)return;data.forEach(d=>{if(d.lat&&d.lng)M.add(d)});
   const d=activeId!=null&&data[activeId];  // a restaurant opened (e.g. from a shared link) before the map was ready
   if(d&&d.lat&&!sheet.hidden){const pk=isPhone()?parseFloat(sheet.style.getPropertyValue("--peek"))||0:0;M.focus(d.lat,d.lng,0,Math.round(pk/2),true)}}

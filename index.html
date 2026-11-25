@@ -114,16 +114,18 @@ button,a{-webkit-tap-highlight-color:transparent}
 
 /* pins */
 .pin{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 5px))}
-.far .pin{transform:translate(-50%,-50%)}
+.far .pin,.pin.dot{transform:translate(-50%,-50%)}
+.far .pin::before,.pin.dot::before{content:"";position:absolute;inset:-9px}
+.pin.dot .pname{display:none!important}
 .pin b{display:flex;align-items:center;gap:4px;background:#fff;color:#211A16;border:2px solid var(--c,#211A16);border-radius:999px;font:700 12px/1 var(--f-body);padding:5px 8px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}
 .pin b i{font-style:normal;font-size:13px;line-height:1}
 .pin b::after{content:"";position:absolute;left:50%;bottom:-5px;width:8px;height:8px;background:inherit;border-right:2px solid var(--c,#211A16);border-bottom:2px solid var(--c,#211A16);transform:translateX(-50%) rotate(45deg)}
 .pin.active b,.pin:hover b{background:var(--brand);color:#fff;border-color:var(--brand)}
 .pin.active b::after,.pin:hover b::after{border-color:var(--brand)}
-.far .pin b{font-size:0;padding:0;width:14px;height:14px;border:2px solid #fff;background:var(--c,var(--brand));box-shadow:0 1px 4px rgba(0,0,0,.35)}
-.far .pin b i{display:none}
-.far .pin b::after{display:none}
-.far .pin.active b{width:22px;height:22px;background:var(--brand)}
+.far .pin b,.pin.dot b{font-size:0;padding:0;width:14px;height:14px;border:2px solid #fff;background:var(--c,var(--brand));box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.far .pin b i,.pin.dot b i{display:none}
+.far .pin b::after,.pin.dot b::after{display:none}
+.far .pin.active b,.pin.dot.active b{width:22px;height:22px;background:var(--brand)}
 .pin-wrap{background:none;border:0}
 .pname{display:none;position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12px/1.2 var(--f-body);color:#202124;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;pointer-events:none}
 .near .pname{display:block}
@@ -379,17 +381,22 @@ function pinHTML(d){
   const label=d.scoreN?d.scoreN.toFixed(1):"·";
   return `<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}" style="--c:${color(d.cuisine)}"><b><i>${emo(d.cuisine)}</i>${label}</b><span class="pname">${esc(short(d.name))}</span></div>`;
 }
-function zoomClass(z){$("map").classList.toggle("far",z<15);$("map").classList.toggle("near",z>=15);declutter()}
+function zoomClass(z){$("map").classList.toggle("far",z<13);$("map").classList.toggle("near",z>=15);declutter()}
 // Like Google Maps: show names when zoomed in, but hide a label that would overlap a better-rated one.
 let dcT=0;
 function declutter(){clearTimeout(dcT);dcT=setTimeout(()=>{
-  if(!$("map").classList.contains("near"))return;
-  const pins=[...document.querySelectorAll("#map .pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.n&&p.d&&p.el.offsetParent);
-  pins.forEach(p=>p.n.classList.remove("hide"));
+  // Like Google Maps: the best-rated pins get a full pill; a pin whose pill would overlap a better one shrinks to a dot.
+  const mapEl=$("map");
+  const pins=[...mapEl.querySelectorAll(".pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.el.offsetParent);
+  if(mapEl.classList.contains("far")){pins.forEach(p=>p.el.classList.remove("dot"));return}
+  const near=mapEl.classList.contains("near");
+  pins.forEach(p=>{p.el.classList.remove("dot");if(p.n)p.n.classList.remove("hide")});
   pins.sort((a,b)=>(b.el.classList.contains("active")-a.el.classList.contains("active"))||(b.d.scoreN||0)-(a.d.scoreN||0));
-  const kept=pins.map(p=>p.el.querySelector("b").getBoundingClientRect());
-  const hit=(a,b)=>a.left<b.right+2&&a.right+2>b.left&&a.top<b.bottom&&a.bottom>b.top;
-  pins.forEach(p=>{const r=p.n.getBoundingClientRect();if(kept.some(k=>hit(r,k)))p.n.classList.add("hide");else kept.push(r)});
+  const rects=pins.map(p=>p.el.querySelector("b").getBoundingClientRect());
+  const hit=(a,b)=>a.left<b.right+3&&a.right+3>b.left&&a.top<b.bottom+2&&a.bottom+2>b.top;
+  const kept=[],pills=[];
+  pins.forEach((p,i)=>{const r=rects[i];if(kept.some(k=>hit(r,k)))p.el.classList.add("dot");else{kept.push(r);pills.push(p)}});
+  if(near)pills.forEach(p=>{if(!p.n)return;const r=p.n.getBoundingClientRect();if(kept.some(k=>hit(r,k)))p.n.classList.add("hide");else kept.push(r)});
 },60)}
 
 function leafletMap(){

@@ -130,6 +130,9 @@ button,a{-webkit-tap-highlight-color:transparent}
 .pname{display:none;position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12px/1.2 var(--f-body);color:#202124;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;pointer-events:none}
 .near .pname{display:block}
 .near .pname.hide{display:none}
+.pname.l{left:auto;right:calc(100% + 5px);text-align:right}
+.pname.b{left:50%;top:calc(100% + 7px);transform:translateX(-50%);text-align:center}
+.pname.t{left:50%;top:auto;bottom:calc(100% + 3px);transform:translateX(-50%);text-align:center}
 .pin.active .pname{color:var(--brand)}
 .sig{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .sig b{color:var(--ink);font-weight:600}
@@ -387,18 +390,32 @@ let dcT=0,zooming=false;
 // While the map animates a zoom, every pin is a small dot so nothing piles up; full pills come back once it settles.
 function shrinkAll(){zooming=true;clearTimeout(dcT);document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
 function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(()=>{
-  // Like Google Maps: the best-rated pins get a full pill; a pin whose pill would overlap a better one shrinks to a dot.
+  // Like Google Maps, in order of priority (open restaurant first, then best rated): each pin gets a full pill if it has room,
+  // otherwise it shrinks to a dot. When zoomed in, its name goes right, left, below or above the pill, whichever side is free.
   const mapEl=$("map");
   const pins=[...mapEl.querySelectorAll(".pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.el.offsetParent);
   if(mapEl.classList.contains("far")){pins.forEach(p=>p.el.classList.remove("dot"));return}
   const near=mapEl.classList.contains("near");
-  pins.forEach(p=>{p.el.classList.remove("dot");if(p.n)p.n.classList.remove("hide")});
+  pins.forEach(p=>{p.el.classList.remove("dot");if(p.n)p.n.classList.remove("hide","l","b","t")});
   pins.sort((a,b)=>(b.el.classList.contains("active")-a.el.classList.contains("active"))||(b.d.scoreN||0)-(a.d.scoreN||0));
   const rects=pins.map(p=>p.el.querySelector("b").getBoundingClientRect());
+  const sizes=pins.map(p=>near&&p.n?[p.n.offsetWidth,p.n.offsetHeight]:[0,0]);
   const hit=(a,b)=>a.left<b.right+3&&a.right+3>b.left&&a.top<b.bottom+2&&a.bottom+2>b.top;
-  const kept=[],pills=[];
-  pins.forEach((p,i)=>{const r=rects[i];if(kept.some(k=>hit(r,k)))p.el.classList.add("dot");else{kept.push(r);pills.push(p)}});
-  if(near)pills.forEach(p=>{if(!p.n)return;const r=p.n.getBoundingClientRect();if(kept.some(k=>hit(r,k)))p.n.classList.add("hide");else kept.push(r)});
+  const kept=[],mb=mapEl.getBoundingClientRect();
+  pins.forEach((p,i)=>{
+    const r=rects[i];
+    if(kept.some(k=>hit(r,k))){p.el.classList.add("dot");return}
+    kept.push(r);
+    if(!near||!p.n)return;
+    const [w,h]=sizes[i],cy=(r.top+r.bottom)/2,cx=(r.left+r.right)/2;
+    const opts=[["",{left:r.right+5,right:r.right+5+w,top:cy-h/2,bottom:cy+h/2}],
+                ["l",{left:r.left-5-w,right:r.left-5,top:cy-h/2,bottom:cy+h/2}],
+                ["b",{left:cx-w/2,right:cx+w/2,top:r.bottom+7,bottom:r.bottom+7+h}],
+                ["t",{left:cx-w/2,right:cx+w/2,top:r.top-3-h,bottom:r.top-3}]];
+    const free=opts.filter(([,box])=>!kept.some(k=>hit(box,k)));
+    const o=free.find(([,box])=>box.left>=mb.left+2&&box.right<=mb.right-2&&box.top>=mb.top&&box.bottom<=mb.bottom)||free[0];
+    if(o){if(o[0])p.n.classList.add(o[0]);kept.push(o[1])}else p.n.classList.add("hide");
+  });
 },60)}
 
 function leafletMap(){

@@ -160,26 +160,43 @@ button,a{-webkit-tap-highlight-color:transparent}
 
 /* pins */
 .pin{position:absolute;left:0;top:0;transform:translate(-50%,calc(-100% - 5px))}
-.far .pin,.pin.dot{transform:translate(-50%,-50%)}
-.far .pin::before,.pin.dot::before{content:"";position:absolute;inset:-9px}
+.pin.dot{transform:translate(-50%,-50%)}
+.pin.dot::before{content:"";position:absolute;inset:-9px}
 .pin.dot .pname{display:none!important}
 .pin b{display:flex;align-items:center;gap:4px;background:#fff;color:#211A16;border:2px solid var(--c,#211A16);border-radius:999px;font:700 12px/1 var(--f-body);padding:5px 8px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.18);font-variant-numeric:tabular-nums}
 .pin b i{font-style:normal;font-size:13px;line-height:1}
 .pin b::after{content:"";position:absolute;left:50%;bottom:-5px;width:8px;height:8px;background:inherit;border-right:2px solid var(--c,#211A16);border-bottom:2px solid var(--c,#211A16);transform:translateX(-50%) rotate(45deg)}
 .pin.active b,.pin:hover b{background:var(--brand);color:#fff;border-color:var(--brand)}
 .pin.active b::after,.pin:hover b::after{border-color:var(--brand)}
-.far .pin b,.pin.dot b{font-size:0;padding:0;width:14px;height:14px;border:2px solid #fff;background:var(--c,var(--brand));box-shadow:0 1px 4px rgba(0,0,0,.35)}
-.far .pin b i,.pin.dot b i{display:none}
-.far .pin b::after,.pin.dot b::after{display:none}
-.far .pin.active b,.pin.dot.active b{width:22px;height:22px;background:var(--brand)}
+.pin.dot b{font-size:0;padding:0;width:14px;height:14px;border:2px solid #fff;background:var(--c,var(--brand));box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.pin.dot b i{display:none}
+.pin.dot b::after{display:none}
+.pin.dot.active b{width:22px;height:22px;background:var(--brand)}
+/* a group of restaurants too close to show separately at this zoom: tap to zoom in */
+.pin.inc{display:none}
+.pin .cn{display:none}
+.pin.cl b,.pin.cl .pname{display:none!important}
+.pin.cl .cn{position:relative;display:flex;align-items:center;gap:5px;background:#1E1714;color:#fff;border:2px solid #fff;border-radius:999px;padding:4px 10px 4px 7px;font:800 13px/1 var(--f-body);white-space:nowrap;box-shadow:0 3px 10px rgba(30,15,5,.35);font-variant-numeric:tabular-nums;cursor:pointer}
+.pin.cl .cn i{font-style:normal;font-size:14px;letter-spacing:-1px;margin-right:1px}
+.pin.cl .cn small{font:600 11px/1 var(--f-body);opacity:.75;margin-left:-2px}
+.pin.cl .cn::after{content:"";position:absolute;left:50%;bottom:-6px;width:8px;height:8px;background:#1E1714;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateX(-50%) rotate(45deg)}
+.pin.cl:hover .cn,.pin.cl.hl .cn{background:var(--brand)}
+.pin.cl:hover .cn::after,.pin.cl.hl .cn::after{background:var(--brand)}
+.cpop{position:fixed;z-index:1400;background:var(--surface);color:var(--ink);border-radius:14px;box-shadow:0 10px 30px rgba(30,15,5,.28);padding:6px;min-width:220px;max-width:280px;max-height:300px;overflow-y:auto;animation:pdrop .14s ease-out}
+.cpop button{display:flex;align-items:center;gap:9px;width:100%;border:0;background:none;color:inherit;font:inherit;text-align:left;padding:8px;border-radius:10px;cursor:pointer}
+.cpop button:hover{background:var(--soft)}
+.cpop .em{width:30px;height:30px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--c) 18%,var(--surface))}
+.cpop .t{flex:1;min-width:0;font-weight:700;font-size:13.5px;line-height:1.25}
+.cpop .t small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.cpop .s{font-weight:800;font-size:13px}
 .pin-wrap{background:none;border:0}
-.pname{display:none;position:absolute;left:calc(100% + 5px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12px/1.2 var(--f-body);color:#202124;text-shadow:0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 4px #fff;pointer-events:none}
-.near .pname{display:block}
-.near .pname.hide{display:none}
+/* restaurant names: a white tag with dark bold text, so they never blend into Google's own grey street and place labels */
+.pname{display:block;position:absolute;left:calc(100% + 4px);top:50%;transform:translateY(-50%);width:max-content;max-width:150px;font:700 12.5px/1.22 var(--f-body);color:#1E1714;background:#fff;border-radius:7px;padding:3px 7px;box-shadow:0 1px 2px rgba(30,15,5,.18),0 2px 6px rgba(30,15,5,.16);pointer-events:none;letter-spacing:-.005em}
+.pname.hide{display:none}
 .pname.l{left:auto;right:calc(100% + 5px);text-align:right}
 .pname.b{left:50%;top:calc(100% + 7px);transform:translateX(-50%);text-align:center}
 .pname.t{left:50%;top:auto;bottom:calc(100% + 3px);transform:translateX(-50%);text-align:center}
-.pin.active .pname{color:var(--brand)}
+.pin.active .pname,.pin:hover .pname{background:var(--brand);color:#fff}
 .sig{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
 .sig b{color:var(--ink);font-weight:600}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -437,39 +454,79 @@ function pinHTML(d){
   const label=d.scoreN?d.scoreN.toFixed(1):"·";
   return `<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}" style="--c:${color(d.cuisine)}"><b><i>${emo(d.cuisine)}</i>${label}</b><span class="pname">${esc(short(d.name))}</span></div>`;
 }
-function zoomClass(z){$("map").classList.toggle("far",z<13);$("map").classList.toggle("near",z>=15);declutter()}
-// Like Google Maps: show names when zoomed in, but hide a label that would overlap a better-rated one.
-let dcT=0,zooming=false;
-// While the map animates a zoom, every pin is a small dot so nothing piles up; full pills come back once it settles.
-function shrinkAll(){zooming=true;clearTimeout(dcT);document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
-function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(()=>{
-  // Like Google Maps, in order of priority (open restaurant first, then best rated): each pin gets a full pill if it has room,
-  // otherwise it shrinks to a dot. When zoomed in, its name goes right, left, below or above the pill, whichever side is free.
-  const mapEl=$("map");
-  const pins=[...mapEl.querySelectorAll(".pin")].map(el=>({el,n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.el.offsetParent);
-  if(mapEl.classList.contains("far")){pins.forEach(p=>p.el.classList.remove("dot"));return}
-  const near=mapEl.classList.contains("near");
-  pins.forEach(p=>{p.el.classList.remove("dot");if(p.n)p.n.classList.remove("hide","l","b","t")});
-  pins.sort((a,b)=>(b.el.classList.contains("active")-a.el.classList.contains("active"))||(b.d.scoreN||0)-(a.d.scoreN||0));
-  const rects=pins.map(p=>p.el.querySelector("b").getBoundingClientRect());
-  const sizes=pins.map(p=>near&&p.n?[p.n.offsetWidth,p.n.offsetHeight]:[0,0]);
-  const hit=(a,b)=>a.left<b.right+3&&a.right+3>b.left&&a.top<b.bottom+2&&a.bottom+2>b.top;
-  const kept=[],mb=mapEl.getBoundingClientRect();
-  pins.forEach((p,i)=>{
-    const r=rects[i];
-    if(kept.some(k=>hit(r,k))){p.el.classList.add("dot");if(M&&M.layer)M.layer(p.d.id,false);return}
-    kept.push(r);if(M&&M.layer)M.layer(p.d.id,true);
-    if(!near||!p.n)return;
-    const [w,h]=sizes[i],cy=(r.top+r.bottom)/2,cx=(r.left+r.right)/2;
-    const opts=[["",{left:r.right+5,right:r.right+5+w,top:cy-h/2,bottom:cy+h/2}],
-                ["l",{left:r.left-5-w,right:r.left-5,top:cy-h/2,bottom:cy+h/2}],
-                ["b",{left:cx-w/2,right:cx+w/2,top:r.bottom+7,bottom:r.bottom+7+h}],
-                ["t",{left:cx-w/2,right:cx+w/2,top:r.top-3-h,bottom:r.top-3}]];
-    const free=opts.filter(([,box])=>!kept.some(k=>hit(box,k)));
-    const o=free.find(([,box])=>box.left>=mb.left+2&&box.right<=mb.right-2&&box.top>=mb.top&&box.bottom<=mb.bottom)||free[0];
-    if(o){if(o[0])p.n.classList.add(o[0]);kept.push(o[1])}else p.n.classList.add("hide");
+function zoomClass(z){declutter()}
+let dcT=0,zooming=false,clusters={},memberOf={};
+// While the map animates a zoom, every pin is a small dot so nothing piles up; the full layout comes back once it settles.
+function shrinkAll(){zooming=true;clearTimeout(dcT);closeCpop();document.querySelectorAll("#map .pin").forEach(el=>{el.classList.add("dot");el.classList.remove("cl","inc");const n=el.querySelector(".pname");if(n)n.classList.add("hide")})}
+function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(layoutPins,60)}
+// Every restaurant on screen shows its emoji, score and name. When two can't both fit (at any zoom), the lower-priority one
+// joins the nearer one as a numbered group (like Google / Airbnb maps); tapping the group zooms in until they separate.
+function layoutPins(){
+  const mapEl=$("map"),mb=mapEl.getBoundingClientRect();closeCpop();
+  const all=[...mapEl.querySelectorAll(".pin")].map(el=>({el,b:el.querySelector("b"),n:el.querySelector(".pname"),d:data[+el.dataset.pin]})).filter(p=>p.d&&p.b);
+  all.forEach(p=>{p.el.classList.remove("dot","cl","inc","hl");if(p.n)p.n.className="pname";const c=p.el.querySelector(".cn");if(c)c.remove()});
+  clusters={};memberOf={};
+  const pins=all.filter(p=>p.el.offsetParent);
+  pins.forEach(p=>{p.r=p.b.getBoundingClientRect();p.w=p.n?p.n.offsetWidth:0;p.h=p.n?p.n.offsetHeight:0});
+  const pad=160,view=pins.filter(p=>p.r.right>mb.left-pad&&p.r.left<mb.right+pad&&p.r.bottom>mb.top-pad&&p.r.top<mb.bottom+pad);
+  view.sort((a,b)=>((b.d.id===activeId)-(a.d.id===activeId))||(b.d.scoreN||0)-(a.d.scoreN||0)||a.d.id-b.d.id);
+  const hit=(a,b,m=3)=>a.left<b.right+m&&a.right+m>b.left&&a.top<b.bottom+m&&a.bottom+m>b.top;
+  const inMap=x=>x.left>=mb.left+2&&x.right<=mb.right-2&&x.top>=mb.top+2&&x.bottom<=mb.bottom-2;
+  const ctr=x=>[(x.left+x.right)/2,(x.top+x.bottom)/2];
+  const placed=[];
+  const join=(it,p)=>{if(!it.members.length){it.lab=null;it.box={left:it.box.left-8,right:it.box.right+8,top:it.box.top-2,bottom:it.box.bottom+2}}it.members.push(p)};
+  for(const p of view){
+    const r=p.r,act=p.d.id===activeId;
+    // the open restaurant's pin never absorbs others; pins under it just sit beneath it
+    const host=placed.find(it=>!it.active&&(hit(r,it.box)||(it.lab&&hit(r,it.lab))));
+    if(host&&!act){join(host,p);continue}
+    const w=p.w,h=p.h,[cx,cy]=ctr(r);
+    const opts=[["",{left:r.right+4,right:r.right+4+w,top:cy-h/2,bottom:cy+h/2}],
+                ["l",{left:r.left-4-w,right:r.left-4,top:cy-h/2,bottom:cy+h/2}],
+                ["b",{left:cx-w/2,right:cx+w/2,top:r.bottom+8,bottom:r.bottom+8+h}],
+                ["t",{left:cx-w/2,right:cx+w/2,top:r.top-4-h,bottom:r.top-4}]];
+    const blockers=placed.flatMap(it=>it.lab?[it.box,it.lab]:[it.box]);
+    const free=opts.filter(([,x])=>!blockers.some(k=>hit(x,k)));
+    let o=free.find(([,x])=>inMap(x))||free[0];
+    if(!o&&!act){
+      // no side has room for the name: join the closest neighbour instead of losing the name
+      const near=placed.filter(it=>!it.active).map(it=>{const [x,y]=ctr(it.box);return [Math.hypot(x-cx,y-cy),it]}).sort((a,b)=>a[0]-b[0])[0];
+      if(near){join(near[1],p);continue}
+    }
+    if(!o)o=opts[0];
+    placed.push({p,box:r,lab:o[1],side:o[0],active:act,members:[]});
+  }
+  placed.forEach(it=>{
+    const el=it.p.el;
+    if(!it.members.length){if(it.side)it.p.n.classList.add(it.side);if(M&&M.layer)M.layer(it.p.d.id,true);return}
+    const ids=[it.p.d.id,...it.members.map(m=>m.d.id)];clusters[it.p.d.id]=ids;
+    it.members.forEach(m=>{m.el.classList.add("inc");memberOf[m.d.id]=it.p.d.id});
+    const emos=[...new Set(ids.map(i=>emo(data[i].cuisine)))].slice(0,2).join("");
+    el.classList.add("cl");el.insertAdjacentHTML("beforeend",`<span class="cn"><i>${emos}</i>${ids.length}<small>家</small></span>`);
+    if(M&&M.layer)M.layer(it.p.d.id,true);
   });
-},60)}
+}
+function pinTap(id){if(clusters[id])expandCluster(id);else open(id,isPhone())}
+function expandCluster(id){
+  const ids=clusters[id],pts=ids.map(i=>[data[i].lat,data[i].lng]);
+  const spread=Math.max(...pts.map(a=>Math.max(...pts.map(b=>km(a[0],a[1],b[0],b[1])))));
+  const z=M.zoom();
+  if(z>=18||spread<0.03){showCpop(id);return}
+  M.tight(pts,z);
+}
+function showCpop(id){
+  closeCpop();const el=document.querySelector(`#map [data-pin="${id}"] .cn`);if(!el)return;
+  const r=el.getBoundingClientRect(),pop=document.createElement("div");pop.className="cpop";pop.id="cpop";
+  pop.innerHTML=clusters[id].map(i=>{const d=data[i];return `<button type="button" data-id="${i}" style="--c:${color(d.cuisine)}"><span class="em">${emo(d.cuisine)}</span><span class="t">${esc(d.name)}<small>${esc(d.cuisine)} · ${esc(short(d.area||""))}</small></span><span class="s">${d.scoreN?d.scoreN.toFixed(1):""}</span></button>`}).join("");
+  document.body.appendChild(pop);
+  const w=pop.offsetWidth,h=pop.offsetHeight;
+  pop.style.left=Math.max(8,Math.min(r.left+r.width/2-w/2,innerWidth-w-8))+"px";
+  pop.style.top=(r.top-h-12>8?r.top-h-12:Math.min(r.bottom+10,innerHeight-h-8))+"px";
+  pop.onclick=e=>{const b=e.target.closest("[data-id]");if(b){closeCpop();open(+b.dataset.id,isPhone())}};
+  setTimeout(()=>document.addEventListener("pointerdown",cpopAway,true),0);
+}
+function cpopAway(e){const p=$("cpop");if(p&&!p.contains(e.target))closeCpop()}
+function closeCpop(){const p=document.getElementById("cpop");if(p)p.remove();document.removeEventListener("pointerdown",cpopAway,true)}
 
 function leafletMap(){
   if(!window.L){$("map").innerHTML='<div class="empty">地图组件没加载成功，列表仍可正常使用。</div>';return null}
@@ -489,12 +546,13 @@ function leafletMap(){
   map.on("zoomstart",shrinkAll);map.on("zoomend",()=>{zooming=false;zoomClass(map.getZoom())});map.on("moveend",declutter);zoomClass(map.getZoom());
   const mk={},icon=d=>L.divIcon({className:"pin-wrap",iconSize:[0,0],html:pinHTML(d)});
   return {
-    add(d){const m=L.marker([d.lat,d.lng],{icon:icon(d),title:d.name,riseOnHover:true,riseOffset:5000});m._base=0;m.on("click",()=>open(d.id,isPhone()));mk[d.id]=m;m.addTo(map)},
+    add(d){const m=L.marker([d.lat,d.lng],{icon:icon(d),title:d.name,riseOnHover:true,riseOffset:5000});m._base=0;m.on("click",()=>pinTap(d.id));mk[d.id]=m;m.addTo(map)},
     refresh(d,front){const m=mk[d.id];if(m){m.setIcon(icon(d));m.setZIndexOffset(front?5000:m._base)}},
     front(id,on){const m=mk[id];if(m)m.setZIndexOffset(on?5000:m._base)},
     layer(id,pill){const m=mk[id];if(!m)return;m._base=pill?1500:0;if(id!==activeId&&m.options.zIndexOffset!==5000)m.setZIndexOffset(m._base)},
     show(id,on){const m=mk[id];if(!m)return;if(on&&!map.hasLayer(m))m.addTo(map);else if(!on&&map.hasLayer(m))map.removeLayer(m)},
     fit(pts){map.fitBounds(pts,{padding:[40,40],maxZoom:15})},
+    tight(pts,z0){const b=L.latLngBounds(pts);let z=Math.min(19,map.getBoundsZoom(b.pad(.6)));if(z<=z0)z=Math.min(19,z0+2);map.setView(b.getCenter(),z)},
     focus(lat,lng,dx,dy,zoomIn){map.setView([lat,lng],zoomIn?Math.max(map.getZoom(),15):map.getZoom(),{animate:false});if(dx||dy)map.panBy([dx,dy],{animate:false})},
     resize(){map.invalidateSize()},
     zoom(z){if(z==null)return map.getZoom();map.setZoom(z)},
@@ -526,7 +584,7 @@ async function googleMap(){
   map.addListener("idle",()=>{settle();declutter()});zoomClass(14);
   return {
     add(d){const w=document.createElement("div");w.className="gpin";w.innerHTML=pinHTML(d);w.title=d.name;
-      OverlayView.preventMapHitsAndGesturesFrom(w);w.addEventListener("click",()=>open(d.id,isPhone()));
+      OverlayView.preventMapHitsAndGesturesFrom(w);w.addEventListener("click",()=>pinTap(d.id));
       w.addEventListener("mouseenter",()=>{w.style.zIndex=1000});w.addEventListener("mouseleave",()=>{if(d.id!==activeId)w.style.zIndex=w.dataset.z||""});
       items[d.id]={el:w,ll:new google.maps.LatLng(d.lat,d.lng),on:true};if(pins.layer)pins.layer.appendChild(w);redraw()},
     refresh(d,front){const it=items[d.id];if(it){it.el.innerHTML=pinHTML(d);it.el.style.zIndex=front?1000:it.el.dataset.z||""}},
@@ -536,6 +594,12 @@ async function googleMap(){
     fit(pts){const b=new google.maps.LatLngBounds();pts.forEach(p=>b.extend({lat:p[0],lng:p[1]}));map.fitBounds(b,40);
       google.maps.event.addListenerOnce(map,"idle",()=>{if(map.getZoom()>15)map.setZoom(15)})},
     focus(lat,lng,dx,dy,zoomIn){if(zoomIn&&map.getZoom()<15)map.setZoom(15);map.setCenter({lat,lng});if(dx||dy)map.panBy(dx,dy)},
+    tight(pts,z0){const b=new google.maps.LatLngBounds();pts.forEach(p=>b.extend({lat:p[0],lng:p[1]}));
+      // zoom to where the group's spread fills ~1/3 of the map, at least 2 levels deeper
+      const el=map.getDiv(),ne=b.getNorthEast(),sw=b.getSouthWest(),wpx=Math.max(el.offsetWidth,1)/3,hpx=Math.max(el.offsetHeight,1)/3;
+      const lngSpan=Math.max(ne.lng()-sw.lng(),1e-6),latSpan=Math.max(ne.lat()-sw.lat(),1e-6);
+      const zl=Math.log2(wpx*360/256/lngSpan),za=Math.log2(hpx*360/256/(latSpan/Math.cos(b.getCenter().lat()*Math.PI/180)));
+      let z=Math.floor(Math.min(zl,za));z=Math.min(19,Math.max(z,z0+2));map.setCenter(b.getCenter());map.setZoom(z)},
     resize(){redraw()},
     zoom(z){if(z==null)return map.getZoom();map.setZoom(z)},
     me(lat,lng){let it=items.me;if(!it){const w=document.createElement("div");w.className="gpin";w.style.zIndex=2000;w.innerHTML='<div class="me"></div>';it=items.me={el:w,on:true};if(pins.layer)pins.layer.appendChild(w)}
@@ -730,7 +794,8 @@ function render(){
     const pts=f.filter(d=>d.lat).map(d=>[d.lat,d.lng]);
     if(any&&pts.length)M.fit(pts);declutter();}
 }
-function hl(id,on){const el=document.querySelector(`[data-pin="${id}"]`);if(el&&id!==activeId)el.classList.toggle("active",on);if(M&&id!==activeId)M.front(id,on)}
+function hl(id,on){if(id===activeId)return;const g=memberOf[id];if(g!=null){const ge=document.querySelector(`#map [data-pin="${g}"]`);if(ge)ge.classList.toggle("hl",on);if(M)M.front(g,on);return}
+  const el=document.querySelector(`#map [data-pin="${id}"]`);if(el)el.classList.toggle("active",on);if(M)M.front(id,on)}
 
 /* ---------- detail sheet: side panel on desktop, Google-Maps-style bottom sheet on phones ---------- */
 const isPhone=()=>matchMedia("(max-width:860px)").matches;

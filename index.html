@@ -4,6 +4,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Food's Map 悉尼</title>
+<meta name="theme-color" content="#14161B">
+<meta name="apple-mobile-web-app-title" content="Food's Map">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C8102E'/%3E%3Cpath d='M32 12c-8.3 0-15 6.5-15 14.6C17 38 32 52 32 52s15-14 15-25.4C47 18.5 40.3 12 32 12z' fill='%23fff'/%3E%3Ccircle cx='32' cy='27' r='6' fill='%23C8102E'/%3E%3C/svg%3E">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +34,8 @@ html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
 button,select,input{font:inherit;color:inherit}
 .pad{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-.app{display:flex;flex-direction:column;height:100%}
+.app{display:flex;flex-direction:column;height:100%;height:100dvh}
+button,a{-webkit-tap-highlight-color:transparent}
 
 /* brand band */
 .band{background:var(--band);color:var(--band-ink);padding-block:18px 16px}
@@ -60,7 +64,7 @@ button,select,input{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 
 /* body */
-.main{flex:1;display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);min-height:0}
+.main{position:relative;flex:1;display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);min-height:0}
 .results{overflow-y:auto;min-width:0;padding-block:16px 40px}
 .rhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
 .rhead h2{font-family:var(--f-display);font-weight:400;font-size:22px;margin:0}
@@ -114,7 +118,7 @@ button,select,input{font:inherit;color:inherit}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* detail sheet */
-.sheet{position:fixed;z-index:3000;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--surface);box-shadow:-8px 0 40px rgba(0,0,0,.18);overflow-y:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.sheet{position:absolute;z-index:1200;top:0;left:0;bottom:0;width:min(560px,100%);background:var(--surface);box-shadow:8px 0 30px rgba(0,0,0,.12);animation:slidein .22s ease-out;overflow-y:auto;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 .hero{height:150px;position:relative;display:flex;align-items:flex-end;padding:18px max(22px,env(safe-area-inset-right,0px)) 18px 22px;color:#fff}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.55))}
 .hero.photo .mono{display:none}
@@ -162,7 +166,7 @@ button,select,input{font:inherit;color:inherit}
 .pmeta{font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .pmeta span:first-child{margin-right:4px}
 .chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 0}
-.chip{flex:0 0 auto;text-decoration:none;font-weight:600;font-size:13.5px;border-radius:999px;padding:8px 16px;background:var(--brand-soft);color:var(--brand)}
+.chip{flex:0 0 auto;border:0;cursor:pointer;font-family:inherit;line-height:1.5;text-decoration:none;font-weight:600;font-size:13.5px;border-radius:999px;padding:8px 16px;background:var(--brand-soft);color:var(--brand)}
 .chip.go{background:var(--brand);color:#fff}
 .lightbox{position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center}
 .lightbox img{max-width:100%;max-height:calc(100% - 80px);object-fit:contain}
@@ -173,10 +177,30 @@ button,select,input{font:inherit;color:inherit}
 .lbcredit a{color:#fff}
 .gpin{position:absolute;left:0;top:0;width:0;height:0}
 .gpin .pin{cursor:pointer}
+.skel{display:grid;grid-template-columns:96px 1fr;grid-template-rows:repeat(3,auto);gap:10px 14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.skel span{grid-row:1/4;width:96px;height:96px;border-radius:8px}
+.skel i{height:12px;border-radius:6px}.skel i:nth-child(2){width:55%;height:16px;margin-top:6px}.skel i:nth-child(3){width:80%}.skel i:nth-child(4){width:40%}
+.skel span,.skel i{background:linear-gradient(90deg,var(--soft) 25%,var(--line) 50%,var(--soft) 75%);background-size:300% 100%;animation:shimmer 1.3s infinite linear}
+@keyframes shimmer{to{background-position:-150% 0}}
+@keyframes slidein{from{opacity:.4;transform:translateX(-12px)}}
+.locate{position:absolute;z-index:1000;right:12px;bottom:28px;width:40px;height:40px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.locate.on{color:#1A73E8}
+.me{position:absolute;left:0;top:0;width:18px;height:18px;transform:translate(-50%,-50%);border-radius:50%;background:#1A73E8;border:3px solid #fff;box-shadow:0 0 0 6px rgba(26,115,232,.2),0 1px 4px rgba(0,0,0,.3)}
+.dist{color:var(--ink);font-weight:600}
+.toast{position:fixed;z-index:5000;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--surface);padding:10px 18px;border-radius:999px;font-weight:600;font-size:13.5px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.x .xt{display:none}
+@media (min-width:861px){
+  .sheet .x{width:auto;height:34px;padding:0 14px 0 10px;border-radius:999px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:4px;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+  .sheet .x .xi{display:none}.sheet .x .xt{display:inline}
+  .hero.photo{aspect-ratio:16/10}
+  .sheet .sbody{padding-left:24px;padding-right:24px}
+}
 .scrim{position:fixed;inset:0;z-index:2999;background:rgba(0,0,0,.28)}
 
 @media (max-width:860px){
-  .sheet{top:auto;left:0;right:0;width:100%;height:calc(100% - 64px - env(safe-area-inset-top,0px));border-radius:16px 16px 0 0;box-shadow:0 -6px 28px rgba(0,0,0,.2);
+  .searchbox input,.sel{font-size:16px}
+  .locate{bottom:84px}
+  .sheet{position:fixed;z-index:3000;animation:none;top:auto;left:0;right:0;width:100%;height:calc(100% - 64px - env(safe-area-inset-top,0px));border-radius:16px 16px 0 0;box-shadow:0 -6px 28px rgba(0,0,0,.2);
     transform:translateY(calc(100% - var(--peek,280px)));transition:transform .3s cubic-bezier(.2,.8,.2,1);overflow-y:hidden;overscroll-behavior:contain}
   .sheet.full{transform:none;overflow-y:auto}
   .sheet.dragging{transition:none}
@@ -265,16 +289,17 @@ button,select,input{font:inherit;color:inherit}
     </div>
   </nav>
   <div class="main">
-    <section class="results pad" aria-label="餐厅列表">
+    <section class="results pad" id="results" aria-label="餐厅列表">
       <div class="rhead"><h2>收藏餐厅<b id="count"></b></h2><button class="sort" id="sort" type="button">按打卡指数 ↓</button></div>
-      <div class="cards" id="cards"><div class="empty">正在加载餐厅…</div></div>
+      <div class="cards" id="cards" aria-busy="true"><div class="skel"><span></span><i></i><i></i><i></i></div><div class="skel"><span></span><i></i><i></i><i></i></div><div class="skel"><span></span><i></i><i></i><i></i></div><div class="skel"><span></span><i></i><i></i><i></i></div><div class="skel"><span></span><i></i><i></i><i></i></div></div>
     </section>
-    <section class="mapwrap" aria-label="地图"><div id="map"></div></section>
+    <section class="mapwrap" aria-label="地图"><div id="map"></div><button class="locate" id="locate" type="button" aria-label="显示我的位置" title="我附近的餐厅"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></button></section>
+    <aside class="sheet" id="sheet" hidden aria-label="餐厅详情"></aside>
   </div>
   <button class="maptoggle" id="maptoggle" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg><span>地图</span></button>
 </div>
 <div class="scrim" id="scrim" hidden></div>
-<aside class="sheet" id="sheet" hidden aria-label="餐厅详情"></aside>
+<div class="toast" id="toast" role="status" hidden></div>
 <div class="lightbox" id="lightbox" hidden><button class="lbx" id="lbclose" type="button" aria-label="关闭">×</button><button class="lbnav prev" id="lbprev" type="button" aria-label="上一张">‹</button><img id="lbimg" alt=""><button class="lbnav next" id="lbnext" type="button" aria-label="下一张">›</button><div class="lbcredit" id="lbcredit"></div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
@@ -310,7 +335,7 @@ function mono(name){
 }
 function stars(n,size){const w=Math.max(0,Math.min(5,n))/5*100;return `<span class="stars" aria-hidden="true">★★★★★<i style="width:${w}%">★★★★★</i></span>`}
 
-let data=[],M=null,activeId=null,sortBy="score";
+let data=[],M=null,activeId=null,sortBy="score",me=null;
 const state={q:"",cuisine:"",region:"",price:"",status:"",meals:new Set(),top:false};
 
 /* ---------- map ---------- */
@@ -365,7 +390,8 @@ function leafletMap(){
     show(id,on){const m=mk[id];if(!m)return;if(on&&!map.hasLayer(m))m.addTo(map);else if(!on&&map.hasLayer(m))map.removeLayer(m)},
     fit(pts){map.fitBounds(pts,{padding:[40,40],maxZoom:15})},
     focus(lat,lng,dx,dy,zoomIn){map.setView([lat,lng],zoomIn?Math.max(map.getZoom(),15):map.getZoom(),{animate:false});if(dx||dy)map.panBy([dx,dy],{animate:false})},
-    resize(){map.invalidateSize()}
+    resize(){map.invalidateSize()},
+    me(lat,lng){if(this._me)this._me.setLatLng([lat,lng]);else this._me=L.marker([lat,lng],{interactive:false,keyboard:false,zIndexOffset:2000,icon:L.divIcon({className:"pin-wrap",iconSize:[0,0],html:'<div class="me"></div>'})}).addTo(map)}
   };
 }
 
@@ -397,7 +423,9 @@ async function googleMap(){
     fit(pts){const b=new google.maps.LatLngBounds();pts.forEach(p=>b.extend({lat:p[0],lng:p[1]}));map.fitBounds(b,40);
       google.maps.event.addListenerOnce(map,"idle",()=>{if(map.getZoom()>15)map.setZoom(15)})},
     focus(lat,lng,dx,dy,zoomIn){if(zoomIn&&map.getZoom()<15)map.setZoom(15);map.setCenter({lat,lng});if(dx||dy)map.panBy(dx,dy)},
-    resize(){redraw()}
+    resize(){redraw()},
+    me(lat,lng){let it=items.me;if(!it){const w=document.createElement("div");w.className="gpin";w.style.zIndex=2000;w.innerHTML='<div class="me"></div>';it=items.me={el:w,on:true};if(pins.layer)pins.layer.appendChild(w)}
+      it.ll=new google.maps.LatLng(lat,lng);redraw()}
   };
 }
 function addPins(){if(M)data.forEach(d=>{if(d.lat&&d.lng)M.add(d)})}
@@ -427,7 +455,7 @@ function buildFilters(){
     const v=load(k);if(v&&[...s.options].some(o=>o.value===v)){s.value=v;state[k]=v}});
   $("top").onclick=()=>{state.top=!state.top;$("top").setAttribute("aria-pressed",state.top);render()};
   $("q").oninput=e=>{state.q=e.target.value.trim().toLowerCase();render()};
-  $("sort").onclick=()=>{sortBy=sortBy==="score"?"name":"score";$("sort").textContent=sortBy==="score"?"按打卡指数 ↓":"按名称 A–Z";render()};
+  $("sort").onclick=()=>{const order=me?["score","dist","name"]:["score","name"];setSort(order[(order.indexOf(sortBy)+1)%order.length])};
   $("clear").onclick=()=>{Object.assign(state,{q:"",cuisine:"",region:"",price:"",status:"",top:false});state.meals.clear();
     ["cuisine","region","price","status"].forEach(k=>{$(k).value="";store(k,"")});$("q").value="";
     document.querySelectorAll(".pill").forEach(p=>p.setAttribute("aria-pressed","false"));render()};
@@ -443,8 +471,23 @@ function filtered(){
     if(state.top&&!(d.scoreN>=4.5))return false;
     if(state.meals.size&&!d.mealsA.some(m=>state.meals.has(m)))return false;
     if(state.q&&!d.hay.includes(state.q))return false;
-    return true}).sort(sortBy==="score"?(a,b)=>(b.scoreN||0)-(a.scoreN||0)||a.name.localeCompare(b.name):(a,b)=>a.name.localeCompare(b.name));
+    return true}).sort(sortBy==="dist"?(a,b)=>(a.km??1e9)-(b.km??1e9):sortBy==="score"?(a,b)=>(b.scoreN||0)-(a.scoreN||0)||a.name.localeCompare(b.name):(a,b)=>a.name.localeCompare(b.name));
 }
+
+function setSort(k){sortBy=k;$("sort").textContent={score:"按打卡指数 ↓",dist:"离我最近",name:"按名称 A–Z"}[k];render();$("results").scrollTop=0}
+const fmtKm=k=>k<1?Math.round(k*1000/10)*10+" m":k.toFixed(k<10?1:0)+" km";
+function km(a,b,c,d){const r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 12742*Math.asin(Math.sqrt(x))}
+function toast(t){const el=$("toast");el.textContent=t;el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,2200)}
+$("locate").onclick=()=>{
+  if(!navigator.geolocation){toast("这个浏览器不支持定位");return}
+  $("locate").classList.add("on");
+  navigator.geolocation.getCurrentPosition(pos=>{
+    me={lat:pos.coords.latitude,lng:pos.coords.longitude};
+    data.forEach(d=>{d.km=d.lat?km(me.lat,me.lng,d.lat,d.lng):null});
+    if(M){M.me(me.lat,me.lng);M.focus(me.lat,me.lng,0,0,true)}
+    setSort("dist");toast("已按离你最近排序");
+  },()=>{$("locate").classList.remove("on");toast("没拿到位置，请在浏览器里允许定位")},{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
+};
 
 /* ---------- render ---------- */
 function render(){
@@ -458,7 +501,7 @@ function render(){
   else box.innerHTML=f.map(d=>{
     const flag=(d.status==="想去"?'<span class="want">想去</span>':"")+(!d.lat?'<span class="flag">位置待确认</span>':d.confidence==="猜测"?'<span class="flag">名字是猜的</span>':"");
     const rating=d.scoreN?`<div class="rating">${stars(d.scoreN)}<b>${d.scoreN.toFixed(1)}</b><span class="lbl">打卡指数</span></div>`:`<div class="rating"><span class="lbl">暂未评分</span></div>`;
-    const meta=[d.cuisine,d.price,d.area].filter(Boolean).map(esc).join('<span class="dotsep">•</span>');
+    const meta=[d.cuisine,d.price,d.area].filter(Boolean).map(esc).join('<span class="dotsep">•</span>')+(d.km!=null?`<span class="dotsep">•</span><span class="dist">${fmtKm(d.km)}</span>`:"");
     return `<button type="button" class="card${d.id===activeId?" active":""}" data-id="${d.id}">
       <span class="thumb" style="background:${color(d.cuisine)}"><span>${esc(mono(d.name))}</span><small>${esc(d.cuisine)}</small></span>
       <span class="cbody"><span class="cname">${esc(d.name)}${flag}</span>${rating}<span class="meta">${meta}</span>
@@ -485,8 +528,8 @@ function measurePeek(){
   sheet.style.setProperty("--peek",h+"px");return h;
 }
 function setFull(on){sheet.classList.toggle("full",on);if(!on)sheet.scrollTop=0}
-function open(id,pan){
-  const prev=activeId;activeId=id;const d=data.find(x=>x.id===id);if(!d)return;
+function open(id,pan,fromHist){
+  const wasHidden=sheet.hidden;const prev=activeId;activeId=id;const d=data.find(x=>x.id===id);if(!d)return;
   const phone=isPhone();
   document.querySelectorAll(".card").forEach(c=>c.classList.toggle("active",+c.dataset.id===id));
   if(M)[prev,id].forEach(k=>{if(k!=null&&data[k]&&data[k].lat)M.refresh(data[k],k===id)});declutter();
@@ -495,17 +538,18 @@ function open(id,pan){
   const meta=[d.cuisine,d.price,short(d.area)].filter(Boolean).map(esc).join(" · ");
   sheet.innerHTML=`
     <div class="grab" aria-hidden="true"></div>
-    <button class="x" type="button" aria-label="关闭">×</button>
+    <button class="x" type="button" aria-label="关闭"><span class="xi">×</span><span class="xt">‹ 返回列表</span></button>
     <div class="hero" style="background:${c}"><span class="mono">${esc(mono(d.name))}</span><span class="kick">${esc(d.cuisine)} · ${esc(d.region)}</span></div>
     <div class="sbody">
       <div class="peek">
         <h3>${esc(d.name)}${d.status==="想去"?'<span class="want">想去</span>':""}</h3>
         <div class="prow">${d.scoreN?`<b class="sc">${d.scoreN.toFixed(1)}</b>${stars(d.scoreN)}<span>打卡指数</span>`:`<span>暂未评分</span>`}<span id="grate"></span></div>
-        <div class="pmeta"><span>${meta}</span>${d.mealsA.map(m=>`<span class="slot">${esc(m)}</span>`).join("")}</div>
+        <div class="pmeta"><span>${meta}${d.km!=null?` · <b class="dist">${fmtKm(d.km)}</b>`:""}</span>${d.mealsA.map(m=>`<span class="slot">${esc(m)}</span>`).join("")}</div>
         <div class="chips">
           ${d.lat?`<a class="chip go" href="https://www.google.com/maps/dir/?api=1&destination=${d.lat},${d.lng}" target="_blank" rel="noopener">路线</a>`:""}
           <a class="chip" id="gmlink" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">Google 地图</a>
           <a class="chip" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">搜评价和菜单</a>
+          <button class="chip" type="button" id="share">分享</button>
         </div>
         <div id="gal">${KEY?'<div class="gload">正在从 Google 地图加载照片…</div>':""}</div>
         <div class="more-hint">上滑查看招牌菜和更多信息</div>
@@ -520,20 +564,36 @@ function open(id,pan){
         ${d.original_names?`<dt>收藏时写作</dt><dd>${esc(split(d.original_names).join("、"))}</dd>`:""}</dl></div>
       ${d.note?`<div class="notebox">${esc(d.note)}</div>`:""}
     </div>`;
-  sheet.classList.remove("full");sheet.hidden=false;$("scrim").hidden=phone;sheet.scrollTop=0;
-  sheet.querySelector(".x").onclick=close;
+  sheet.classList.remove("full");sheet.hidden=false;$("scrim").hidden=true;sheet.scrollTop=0;
+  sheet.querySelector(".x").onclick=()=>close();
+  $("share").onclick=()=>share(d);
+  if(!fromHist){const h="#"+encodeURIComponent(d.name);try{wasHidden?history.pushState({fm:1},"",h):history.replaceState({fm:1},"",h)}catch(e){}}
   if(!phone)sheet.querySelector(".x").focus({preventScroll:true});
   let peek=0;
   if(phone){setMapView(true);peek=measurePeek();
     sheet.querySelector(".peek").onclick=e=>{if(!sheet.classList.contains("full")&&!e.target.closest("a,button"))setFull(true)}}
   if(M&&d.lat&&(pan||phone)){
-    const dx=!phone&&$("map").offsetWidth>sheet.offsetWidth+200?Math.round(sheet.offsetWidth/2):0;
+    const dx=0;
     const dy=phone?Math.round(peek/2):0;
     M.focus(d.lat,d.lng,dx,dy,pan);
   }
   photos(d);
 }
-function close(){sheet.hidden=true;sheet.classList.remove("full");$("scrim").hidden=true;closeLightbox()}
+function close(fromHist){
+  if(sheet.hidden)return;
+  sheet.hidden=true;sheet.classList.remove("full");$("scrim").hidden=true;closeLightbox();
+  const prev=activeId;activeId=null;if(M&&prev!=null&&data[prev]&&data[prev].lat)M.refresh(data[prev],false);
+  document.querySelectorAll(".card.active").forEach(c=>c.classList.remove("active"));
+  if(!fromHist){try{if(history.state&&history.state.fm===1)history.back();else history.replaceState(null,"",location.pathname+location.search)}catch(e){}}
+}
+const idFromHash=()=>{let h="";try{h=decodeURIComponent(location.hash.slice(1))}catch(e){}const d=h&&data.find(x=>x.name===h);return d?d.id:null};
+addEventListener("popstate",()=>{const id=idFromHash();if(id!=null)open(id,true,true);else close(true)});
+async function share(d){
+  const url=location.origin+location.pathname+"#"+encodeURIComponent(d.name);
+  const text=`${d.name} · ${d.cuisine}${d.scoreN?` · 打卡指数 ${d.scoreN.toFixed(1)}`:""}`;
+  if(navigator.share){try{await navigator.share({title:d.name,text,url});return}catch(e){if(e.name==="AbortError")return}}
+  try{await navigator.clipboard.writeText(url);toast("链接已复制，可以发给朋友")}catch(e){toast("请直接复制地址栏里的链接")}
+}
 $("scrim").onclick=close;
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(!$("lightbox").hidden)closeLightbox();else close()}});
 
@@ -605,7 +665,9 @@ fetch("restaurants.csv",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error(r.
   data=parseCSV(t).map((d,i)=>({...d,id:i,scoreN:parseFloat(d.score)||0,mealsA:split(d.meals),sigA:split(d.signature),lat:parseFloat(d.lat)||null,lng:parseFloat(d.lng)||null,
     hay:[d.name,d.original_names,d.cuisine,d.area,d.region,d.highlights,d.signature,d.vibe].join(" ").toLowerCase()}));
   $("tagline").textContent=`Johnny 的悉尼收藏餐厅 · ${data.length} 家`;
+  $("cards").removeAttribute("aria-busy");
   addPins();buildFilters();render();
+  const hid=idFromHash();if(hid!=null){open(hid,true,true);try{history.replaceState({fm:0},"",location.href)}catch(e){}}
 }).catch(e=>{console.error(e);$("cards").innerHTML='<div class="empty">读取 restaurants.csv 失败，请确认它和网页在同一个文件夹。</div>'});
 })();
 </script>

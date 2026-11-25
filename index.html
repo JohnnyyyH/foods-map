@@ -596,7 +596,7 @@ async function photos(d){
   lb={urls,credits,i:0};
   gal.querySelectorAll("button").forEach((b,i)=>b.onclick=()=>{if(isPhone())showLightbox(i);else show(i)});
   hero.onclick=()=>showLightbox(lb.i);
-  show(0);if(isPhone()){gal.querySelector(".credit").innerHTML=credits[0];measurePeek()}
+  show(0);if(isPhone()){const pk=measurePeek();if(M&&d.lat&&!sheet.classList.contains("full"))M.focus(d.lat,d.lng,0,Math.round(pk/2),false)}
 }
 
 /* ---------- boot ---------- */

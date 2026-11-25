@@ -199,6 +199,8 @@ button,a{-webkit-tap-highlight-color:transparent}
 
 @media (max-width:860px){
   .searchbox input,.sel{font-size:16px}
+  .meta{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sel{max-width:136px}
   .locate{bottom:84px}
   .sheet{position:fixed;z-index:3000;animation:none;top:auto;left:0;right:0;width:100%;height:calc(100% - 64px - env(safe-area-inset-top,0px));border-radius:16px 16px 0 0;box-shadow:0 -6px 28px rgba(0,0,0,.2);
     transform:translateY(calc(100% - var(--peek,280px)));transition:transform .3s cubic-bezier(.2,.8,.2,1);overflow-y:hidden;overscroll-behavior:contain}
@@ -398,7 +400,8 @@ function leafletMap(){
 async function googleMap(){
   await gmaps();
   const {Map,OverlayView}=await google.maps.importLibrary("maps");
-  const map=new Map($("map"),{center:{lat:-33.872,lng:151.205},zoom:14,minZoom:9,disableDefaultUI:true,zoomControl:true,clickableIcons:false,gestureHandling:"greedy",
+  let CP=null;try{CP=(await google.maps.importLibrary("core")).ControlPosition}catch(e){}
+  const map=new Map($("map"),{center:{lat:-33.872,lng:151.205},zoom:14,minZoom:9,disableDefaultUI:true,zoomControl:!isPhone(),zoomControlOptions:CP&&CP.RIGHT_TOP?{position:CP.RIGHT_TOP}:undefined,clickableIcons:false,gestureHandling:"greedy",
     styles:[{featureType:"poi.business",stylers:[{visibility:"off"}]},{featureType:"poi.attraction",elementType:"labels.icon",stylers:[{visibility:"off"}]}]});
   const items={};let raf=0;
   class Pins extends OverlayView{
@@ -428,7 +431,9 @@ async function googleMap(){
       it.ll=new google.maps.LatLng(lat,lng);redraw()}
   };
 }
-function addPins(){if(M)data.forEach(d=>{if(d.lat&&d.lng)M.add(d)})}
+function addPins(){if(!M)return;data.forEach(d=>{if(d.lat&&d.lng)M.add(d)});
+  const d=activeId!=null&&data[activeId];  // a restaurant opened (e.g. from a shared link) before the map was ready
+  if(d&&d.lat&&!sheet.hidden){const pk=isPhone()?parseFloat(sheet.style.getPropertyValue("--peek"))||0:0;M.focus(d.lat,d.lng,0,Math.round(pk/2),true)}}
 async function initMap(){
   if(KEY){
     window.gm_authFailure=()=>{console.warn("Google Maps key rejected, using the free map");useLeaflet()};

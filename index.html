@@ -88,6 +88,8 @@ button,select,input{font:inherit;color:inherit}
 .slot{background:var(--brand);color:var(--brand-ink);border-radius:6px;font-size:12px;font-weight:600;padding:3px 9px}
 .flag{display:inline-block;background:var(--warn-bg);color:var(--warn);font-size:11px;font-weight:600;padding:1px 7px;border-radius:4px;margin-left:6px;vertical-align:2px;font-family:var(--f-body)}
 .empty{color:var(--muted);padding:40px 0;text-align:center}
+.want{display:inline-block;background:var(--soft);color:var(--ink);border:1px solid var(--line);font-size:11px;font-weight:600;padding:0 7px;border-radius:4px;margin-left:6px;vertical-align:2px;font-family:var(--f-body)}
+.pin.wantpin b{border-style:dashed}
 .mapwrap{position:relative;min-width:0;border-left:1px solid var(--line)}
 #map{position:absolute;inset:0;background:var(--soft)}
 .maptoggle{display:none}
@@ -173,9 +175,7 @@ button,select,input{font:inherit;color:inherit}
 .leaflet-control-attribution a{color:var(--muted)}
 .leaflet-tooltip{position:absolute;padding:4px 10px;background:var(--ink);color:var(--surface);border-radius:6px;white-space:nowrap;pointer-events:none;font-size:12px;font-weight:600}
 .leaflet-div-icon{background:none;border:0}
-.basemap{filter:grayscale(.85) contrast(.92) brightness(1.04)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .basemap{filter:grayscale(.9) invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}}
-:root[data-theme="dark"] .basemap{filter:grayscale(.9) invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
+
 .sub-label{font:600 11px/1 var(--f-body);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transform:translate(-50%,-50%);display:inline-block}
 .tilenote{position:absolute;z-index:1000;left:12px;right:60px;top:12px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:8px;padding:8px 12px;font-size:12.5px;color:var(--muted)}
 </style>
@@ -202,6 +202,8 @@ button,select,input{font:inherit;color:inherit}
       <span id="meals" style="display:contents"></span>
       <span class="sep"></span>
       <button class="pill" type="button" id="top" aria-pressed="false">打卡 4.5+</button>
+      <span class="sep"></span>
+      <select class="sel" id="status" aria-label="收藏状态"><option value="">收藏 + 想去</option><option value="收藏">只看收藏的</option><option value="想去">只看想去的</option></select>
       <button class="clear" type="button" id="clear" hidden>清除筛选</button>
     </div>
   </nav>
@@ -221,7 +223,7 @@ button,select,input{font:inherit;color:inherit}
 <script>
 (function(){
 const MEALS=["早餐","早午餐","午餐","下午茶","晚餐","宵夜"];
-const COLORS={"意大利菜":"#B23A2B","法餐":"#2F4A8A","日料":"#A3294F","韩餐":"#5E3A8C","泰餐":"#2C7A4B","马来/南洋":"#C7741A","火锅":"#8E1B1B","中餐":"#8A4B2A","牛排/烧烤":"#4A3428","现代澳洲菜":"#1F6A68","咖啡/早午餐":"#7A5A44","甜品/咖啡":"#B8577F","拉美菜":"#B9861A","巴西烤肉":"#2D6B33","西班牙/地中海":"#2476A8","中东/埃及菜":"#A8642A","希腊菜":"#2C5DB8","印度菜":"#C0512E","汉堡/快餐":"#7C7A22","酒吧/小食":"#3F4F5A","未确认":"#7D838C"};
+const COLORS={"意大利菜":"#B23A2B","法餐":"#2F4A8A","日料":"#A3294F","韩餐":"#5E3A8C","泰餐":"#2C7A4B","马来/南洋":"#C7741A","火锅":"#8E1B1B","中餐":"#8A4B2A","牛排/烧烤":"#4A3428","现代澳洲菜":"#1F6A68","咖啡/早午餐":"#7A5A44","甜品/咖啡":"#B8577F","拉美菜":"#B9861A","巴西烤肉":"#2D6B33","西班牙/地中海":"#2476A8","中东/埃及菜":"#A8642A","希腊菜":"#2C5DB8","印度菜":"#C0512E","汉堡/快餐":"#7C7A22","酒吧/小食":"#3F4F5A","亚洲融合":"#9C3D6B","三明治/快餐":"#8C7A1F","未确认":"#7D838C"};
 const SUBURBS=[["CBD",-33.8688,151.2093],["Haymarket",-33.8795,151.2045],["The Rocks",-33.8590,151.2085],["Surry Hills",-33.8850,151.2110],["Darlinghurst",-33.8780,151.2195],["Paddington",-33.8855,151.2290],["Redfern",-33.8925,151.2040],["Alexandria",-33.9070,151.1940],["Newtown",-33.8975,151.1790],["Glebe",-33.8800,151.1855],["Pyrmont",-33.8700,151.1950],["Barangaroo",-33.8616,151.2017]];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -250,7 +252,7 @@ function mono(name){
 function stars(n,size){const w=Math.max(0,Math.min(5,n))/5*100;return `<span class="stars" aria-hidden="true">★★★★★<i style="width:${w}%">★★★★★</i></span>`}
 
 let data=[],markers={},map=null,activeId=null,sortBy="score";
-const state={q:"",cuisine:"",region:"",price:"",meals:new Set(),top:false};
+const state={q:"",cuisine:"",region:"",price:"",status:"",meals:new Set(),top:false};
 
 /* ---------- map ---------- */
 function isDark(){const t=document.documentElement.dataset.theme;return t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches)}
@@ -258,15 +260,13 @@ function initMap(){
   if(!window.L){$("map").innerHTML='<div class="empty">地图组件没加载成功，列表仍可正常使用。</div>';return}
   map=L.map("map",{zoomControl:false,attributionControl:true,minZoom:9}).setView([-33.872,151.205],14);
   L.control.zoom({position:"topright"}).addTo(map);
-  // Keyless tiles: OpenStreetMap first, Esri gray canvas as a backup if OSM refuses.
+  // Keyless colourful tiles: Esri World Street Map (closest free look to Google Maps), OpenStreetMap as backup.
   const OSM_ATTR='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
-  const ESRI_ATTR='Tiles &copy; <a href="https://www.esri.com" target="_blank" rel="noopener">Esri</a>, '+OSM_ATTR;
-  let tiles=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:OSM_ATTR,className:"basemap"}).addTo(map);
-  let osmFails=0,swapped=false;
-  tiles.on("tileerror",()=>{if(swapped||++osmFails<4)return;swapped=true;map.removeLayer(tiles);
-    const shade=isDark()?"Dark_Gray":"Light_Gray";
-    tiles=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_"+shade+"_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:ESRI_ATTR}).addTo(map);
-    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_"+shade+"_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(map);
+  const ESRI_ATTR='Tiles &copy; <a href="https://www.esri.com" target="_blank" rel="noopener">Esri</a>, HERE, Garmin, '+OSM_ATTR;
+  let tiles=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:ESRI_ATTR}).addTo(map);
+  let fails=0,swapped=false;
+  tiles.on("tileerror",()=>{if(swapped||++fails<4)return;swapped=true;map.removeLayer(tiles);
+    tiles=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:OSM_ATTR}).addTo(map);
     watch(tiles)});
   let loaded=false,noted=false;
   function watch(layer){let failed=0;layer.on("tileload",()=>{loaded=true});
@@ -279,7 +279,7 @@ function initMap(){
 }
 function pinIcon(d){
   const label=d.scoreN?d.scoreN.toFixed(1):"·";
-  return L.divIcon({className:"pin-wrap",iconSize:[0,0],html:`<div class="pin${d.id===activeId?" active":""}" data-pin="${d.id}"><b>${label}</b></div>`});
+  return L.divIcon({className:"pin-wrap",iconSize:[0,0],html:`<div class="pin${d.id===activeId?" active":""}${d.status==="想去"?" wantpin":""}" data-pin="${d.id}"><b>${label}</b></div>`});
 }
 
 /* ---------- filters ---------- */
@@ -291,13 +291,13 @@ function buildFilters(){
   regions.forEach(r=>$("region").insertAdjacentHTML("beforeend",`<option value="${esc(r)}">${esc(r)} (${cnt("region",r)})</option>`));
   MEALS.forEach(m=>{const b=document.createElement("button");b.type="button";b.className="pill";b.textContent=m;b.setAttribute("aria-pressed","false");
     b.onclick=()=>{state.meals.has(m)?state.meals.delete(m):state.meals.add(m);b.setAttribute("aria-pressed",state.meals.has(m));render()};$("meals").appendChild(b)});
-  ["cuisine","region","price"].forEach(k=>{const s=$(k);s.onchange=()=>{state[k]=s.value;store(k,s.value);render()};
+  ["cuisine","region","price","status"].forEach(k=>{const s=$(k);s.onchange=()=>{state[k]=s.value;store(k,s.value);render()};
     const v=load(k);if(v&&[...s.options].some(o=>o.value===v)){s.value=v;state[k]=v}});
   $("top").onclick=()=>{state.top=!state.top;$("top").setAttribute("aria-pressed",state.top);render()};
   $("q").oninput=e=>{state.q=e.target.value.trim().toLowerCase();render()};
   $("sort").onclick=()=>{sortBy=sortBy==="score"?"name":"score";$("sort").textContent=sortBy==="score"?"按打卡指数 ↓":"按名称 A–Z";render()};
-  $("clear").onclick=()=>{Object.assign(state,{q:"",cuisine:"",region:"",price:"",top:false});state.meals.clear();
-    ["cuisine","region","price"].forEach(k=>{$(k).value="";store(k,"")});$("q").value="";
+  $("clear").onclick=()=>{Object.assign(state,{q:"",cuisine:"",region:"",price:"",status:"",top:false});state.meals.clear();
+    ["cuisine","region","price","status"].forEach(k=>{$(k).value="";store(k,"")});$("q").value="";
     document.querySelectorAll(".pill").forEach(p=>p.setAttribute("aria-pressed","false"));render()};
   $("random").onclick=()=>{const f=filtered().filter(d=>d.scoreN);if(!f.length)return;open(f[Math.floor(Math.random()*f.length)].id,true)};
   $("maptoggle").onclick=()=>{const on=$("app").classList.toggle("show-map");$("maptoggle").querySelector("span").textContent=on?"列表":"地图";if(map)setTimeout(()=>map.invalidateSize(),50)};
@@ -307,6 +307,7 @@ function filtered(){
     if(state.cuisine&&d.cuisine!==state.cuisine)return false;
     if(state.region&&d.region!==state.region)return false;
     if(state.price&&d.price!==state.price)return false;
+    if(state.status&&(d.status||"收藏")!==state.status)return false;
     if(state.top&&!(d.scoreN>=4.5))return false;
     if(state.meals.size&&!d.mealsA.some(m=>state.meals.has(m)))return false;
     if(state.q&&!d.hay.includes(state.q))return false;
@@ -317,13 +318,13 @@ function filtered(){
 function render(){
   const f=filtered(),ids=new Set(f.map(d=>d.id));
   $("count").textContent=f.length===data.length?`${data.length} 家`:`${f.length} / ${data.length} 家`;
-  const any=state.q||state.cuisine||state.region||state.price||state.top||state.meals.size;
+  const any=state.q||state.cuisine||state.region||state.price||state.status||state.top||state.meals.size;
   $("clear").hidden=!any;
-  ["cuisine","region","price"].forEach(k=>$(k).classList.toggle("on",!!state[k]));
+  ["cuisine","region","price","status"].forEach(k=>$(k).classList.toggle("on",!!state[k]));
   const box=$("cards");
   if(!f.length){box.innerHTML='<div class="empty">没有符合条件的餐厅，试试<button class="clear" type="button" onclick="document.getElementById(\'clear\').click()">清除筛选</button></div>';}
   else box.innerHTML=f.map(d=>{
-    const flag=!d.lat?'<span class="flag">位置待确认</span>':d.confidence==="猜测"?'<span class="flag">名字是猜的</span>':"";
+    const flag=(d.status==="想去"?'<span class="want">想去</span>':"")+(!d.lat?'<span class="flag">位置待确认</span>':d.confidence==="猜测"?'<span class="flag">名字是猜的</span>':"");
     const rating=d.scoreN?`<div class="rating">${stars(d.scoreN)}<b>${d.scoreN.toFixed(1)}</b><span class="lbl">打卡指数</span></div>`:`<div class="rating"><span class="lbl">暂未评分</span></div>`;
     const meta=[d.cuisine,d.price,d.area].filter(Boolean).map(esc).join('<span class="dotsep">•</span>');
     return `<button type="button" class="card${d.id===activeId?" active":""}" data-id="${d.id}">
@@ -353,7 +354,7 @@ function open(id,pan){
       ${d.mealsA.length?`<div class="sec"><h4>推荐时段</h4><div class="slots lg">${d.mealsA.map(m=>`<span class="slot">${esc(m)}</span>`).join("")}</div></div>`:""}
       ${d.highlights?`<div class="sec"><h4>为什么值得去</h4><p>${esc(d.highlights)}</p></div>`:""}
       <div class="sec"><h4>信息</h4><dl class="facts">
-        <dt>菜系</dt><dd>${esc(d.cuisine||"—")}</dd><dt>区域</dt><dd>${esc(d.region||"—")}</dd><dt>位置</dt><dd>${esc(d.area||"—")}</dd><dt>人均</dt><dd>${esc(d.price||"—")}</dd>
+        <dt>菜系</dt><dd>${esc(d.cuisine||"—")}</dd><dt>区域</dt><dd>${esc(d.region||"—")}</dd><dt>位置</dt><dd>${esc(d.area||"—")}</dd><dt>人均</dt><dd>${esc(d.price||"—")}</dd><dt>状态</dt><dd>${esc(d.status||"收藏")}</dd>
         ${d.original_names?`<dt>收藏时写作</dt><dd>${esc(split(d.original_names).join("、"))}</dd>`:""}</dl></div>
       ${d.note?`<div class="notebox">${esc(d.note)}</div>`:""}
       <div class="actions"><a class="a1" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">在 Google 地图打开</a><a class="a2" href="https://www.google.com/search?q=${q}" target="_blank" rel="noopener">搜索评价和菜单</a></div>

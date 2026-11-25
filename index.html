@@ -519,7 +519,11 @@ async function googleMap(){
   }
   const pins=new Pins();pins.setMap(map);
   const redraw=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>pins.draw())};
-  map.addListener("zoom_changed",()=>{shrinkAll();zoomClass(map.getZoom())});map.addListener("idle",()=>{zooming=false;declutter()});zoomClass(14);
+  // pins shrink to dots while zooming; restore as soon as the camera stops moving (Google's "idle" waits for tiles, which can take seconds)
+  let zt=0;const settle=()=>{clearTimeout(zt);if(!zooming)return;zooming=false;declutter()};
+  map.addListener("zoom_changed",()=>{shrinkAll();zoomClass(map.getZoom());clearTimeout(zt);zt=setTimeout(settle,450)});
+  map.addListener("bounds_changed",()=>{if(zooming){clearTimeout(zt);zt=setTimeout(settle,250)}});
+  map.addListener("idle",()=>{settle();declutter()});zoomClass(14);
   return {
     add(d){const w=document.createElement("div");w.className="gpin";w.innerHTML=pinHTML(d);w.title=d.name;
       OverlayView.preventMapHitsAndGesturesFrom(w);w.addEventListener("click",()=>open(d.id,isPhone()));

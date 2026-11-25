@@ -457,8 +457,8 @@ function declutter(){clearTimeout(dcT);if(zooming)return;dcT=setTimeout(()=>{
   const kept=[],mb=mapEl.getBoundingClientRect();
   pins.forEach((p,i)=>{
     const r=rects[i];
-    if(kept.some(k=>hit(r,k))){p.el.classList.add("dot");return}
-    kept.push(r);
+    if(kept.some(k=>hit(r,k))){p.el.classList.add("dot");if(M&&M.layer)M.layer(p.d.id,false);return}
+    kept.push(r);if(M&&M.layer)M.layer(p.d.id,true);
     if(!near||!p.n)return;
     const [w,h]=sizes[i],cy=(r.top+r.bottom)/2,cx=(r.left+r.right)/2;
     const opts=[["",{left:r.right+5,right:r.right+5+w,top:cy-h/2,bottom:cy+h/2}],
@@ -489,9 +489,10 @@ function leafletMap(){
   map.on("zoomstart",shrinkAll);map.on("zoomend",()=>{zooming=false;zoomClass(map.getZoom())});map.on("moveend",declutter);zoomClass(map.getZoom());
   const mk={},icon=d=>L.divIcon({className:"pin-wrap",iconSize:[0,0],html:pinHTML(d)});
   return {
-    add(d){const m=L.marker([d.lat,d.lng],{icon:icon(d),title:d.name,riseOnHover:true});m.on("click",()=>open(d.id,isPhone()));mk[d.id]=m;m.addTo(map)},
-    refresh(d,front){const m=mk[d.id];if(m){m.setIcon(icon(d));m.setZIndexOffset(front?1000:0)}},
-    front(id,on){mk[id]&&mk[id].setZIndexOffset(on?1000:0)},
+    add(d){const m=L.marker([d.lat,d.lng],{icon:icon(d),title:d.name,riseOnHover:true,riseOffset:5000});m._base=0;m.on("click",()=>open(d.id,isPhone()));mk[d.id]=m;m.addTo(map)},
+    refresh(d,front){const m=mk[d.id];if(m){m.setIcon(icon(d));m.setZIndexOffset(front?5000:m._base)}},
+    front(id,on){const m=mk[id];if(m)m.setZIndexOffset(on?5000:m._base)},
+    layer(id,pill){const m=mk[id];if(!m)return;m._base=pill?1500:0;if(id!==activeId&&m.options.zIndexOffset!==5000)m.setZIndexOffset(m._base)},
     show(id,on){const m=mk[id];if(!m)return;if(on&&!map.hasLayer(m))m.addTo(map);else if(!on&&map.hasLayer(m))map.removeLayer(m)},
     fit(pts){map.fitBounds(pts,{padding:[40,40],maxZoom:15})},
     focus(lat,lng,dx,dy,zoomIn){map.setView([lat,lng],zoomIn?Math.max(map.getZoom(),15):map.getZoom(),{animate:false});if(dx||dy)map.panBy([dx,dy],{animate:false})},
@@ -522,10 +523,11 @@ async function googleMap(){
   return {
     add(d){const w=document.createElement("div");w.className="gpin";w.innerHTML=pinHTML(d);w.title=d.name;
       OverlayView.preventMapHitsAndGesturesFrom(w);w.addEventListener("click",()=>open(d.id,isPhone()));
-      w.addEventListener("mouseenter",()=>{w.style.zIndex=1000});w.addEventListener("mouseleave",()=>{if(d.id!==activeId)w.style.zIndex=""});
+      w.addEventListener("mouseenter",()=>{w.style.zIndex=1000});w.addEventListener("mouseleave",()=>{if(d.id!==activeId)w.style.zIndex=w.dataset.z||""});
       items[d.id]={el:w,ll:new google.maps.LatLng(d.lat,d.lng),on:true};if(pins.layer)pins.layer.appendChild(w);redraw()},
-    refresh(d,front){const it=items[d.id];if(it){it.el.innerHTML=pinHTML(d);it.el.style.zIndex=front?1000:""}},
-    front(id,on){const it=items[id];if(it)it.el.style.zIndex=on?1000:""},
+    refresh(d,front){const it=items[d.id];if(it){it.el.innerHTML=pinHTML(d);it.el.style.zIndex=front?1000:it.el.dataset.z||""}},
+    front(id,on){const it=items[id];if(it)it.el.style.zIndex=on?1000:it.el.dataset.z||""},
+    layer(id,pill){const it=items[id];if(!it)return;it.el.dataset.z=pill?10:1;if(it.el.style.zIndex!=="1000")it.el.style.zIndex=it.el.dataset.z},
     show(id,on){const it=items[id];if(it&&it.on!==on){it.on=on;redraw()}},
     fit(pts){const b=new google.maps.LatLngBounds();pts.forEach(p=>b.extend({lat:p[0],lng:p[1]}));map.fitBounds(b,40);
       google.maps.event.addListenerOnce(map,"idle",()=>{if(map.getZoom()>15)map.setZoom(15)})},

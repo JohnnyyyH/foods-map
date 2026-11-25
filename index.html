@@ -424,6 +424,7 @@ function leafletMap(){
     fit(pts){map.fitBounds(pts,{padding:[40,40],maxZoom:15})},
     focus(lat,lng,dx,dy,zoomIn){map.setView([lat,lng],zoomIn?Math.max(map.getZoom(),15):map.getZoom(),{animate:false});if(dx||dy)map.panBy([dx,dy],{animate:false})},
     resize(){map.invalidateSize()},
+    zoom(z){if(z==null)return map.getZoom();map.setZoom(z)},
     me(lat,lng){if(this._me)this._me.setLatLng([lat,lng]);else this._me=L.marker([lat,lng],{interactive:false,keyboard:false,zIndexOffset:2000,icon:L.divIcon({className:"pin-wrap",iconSize:[0,0],html:'<div class="me"></div>'})}).addTo(map)}
   };
 }
@@ -458,10 +459,12 @@ async function googleMap(){
       google.maps.event.addListenerOnce(map,"idle",()=>{if(map.getZoom()>15)map.setZoom(15)})},
     focus(lat,lng,dx,dy,zoomIn){if(zoomIn&&map.getZoom()<15)map.setZoom(15);map.setCenter({lat,lng});if(dx||dy)map.panBy(dx,dy)},
     resize(){redraw()},
+    zoom(z){if(z==null)return map.getZoom();map.setZoom(z)},
     me(lat,lng){let it=items.me;if(!it){const w=document.createElement("div");w.className="gpin";w.style.zIndex=2000;w.innerHTML='<div class="me"></div>';it=items.me={el:w,on:true};if(pins.layer)pins.layer.appendChild(w)}
       it.ll=new google.maps.LatLng(lat,lng);redraw()}
   };
 }
+window.FoodsMap={zoom:z=>M&&M.zoom(z)};  // handy for checking the map at each zoom level
 function addPins(){if(!M)return;data.forEach(d=>{if(d.lat&&d.lng)M.add(d)});
   const d=activeId!=null&&data[activeId];  // a restaurant opened (e.g. from a shared link) before the map was ready
   if(d&&d.lat&&!sheet.hidden){const pk=isPhone()?parseFloat(sheet.style.getPropertyValue("--peek"))||0:0;M.focus(d.lat,d.lng,0,Math.round(pk/2),true)}}

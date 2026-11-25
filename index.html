@@ -173,6 +173,9 @@ button,select,input{font:inherit;color:inherit}
 .leaflet-control-attribution a{color:var(--muted)}
 .leaflet-tooltip{position:absolute;padding:4px 10px;background:var(--ink);color:var(--surface);border-radius:6px;white-space:nowrap;pointer-events:none;font-size:12px;font-weight:600}
 .leaflet-div-icon{background:none;border:0}
+.basemap{filter:grayscale(.85) contrast(.92) brightness(1.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .basemap{filter:grayscale(.9) invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}}
+:root[data-theme="dark"] .basemap{filter:grayscale(.9) invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
 .sub-label{font:600 11px/1 var(--f-body);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transform:translate(-50%,-50%);display:inline-block}
 .tilenote{position:absolute;z-index:1000;left:12px;right:60px;top:12px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:8px;padding:8px 12px;font-size:12.5px;color:var(--muted)}
 </style>
@@ -255,12 +258,22 @@ function initMap(){
   if(!window.L){$("map").innerHTML='<div class="empty">地图组件没加载成功，列表仍可正常使用。</div>';return}
   map=L.map("map",{zoomControl:false,attributionControl:true,minZoom:9}).setView([-33.872,151.205],14);
   L.control.zoom({position:"topright"}).addTo(map);
-  const tiles=L.tileLayer("https://{s}.basemaps.cartocdn.com/"+(isDark()?"dark_all":"light_all")+"/{z}/{x}/{y}{r}.png",{maxZoom:19,subdomains:"abcd",attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
-  let loaded=false,failed=0;
-  tiles.on("tileload",()=>{loaded=true});
-  tiles.on("tileerror",()=>{failed++;if(loaded||failed!==3)return;
+  // Keyless tiles: OpenStreetMap first, Esri gray canvas as a backup if OSM refuses.
+  const OSM_ATTR='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
+  const ESRI_ATTR='Tiles &copy; <a href="https://www.esri.com" target="_blank" rel="noopener">Esri</a>, '+OSM_ATTR;
+  let tiles=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:OSM_ATTR,className:"basemap"}).addTo(map);
+  let osmFails=0,swapped=false;
+  tiles.on("tileerror",()=>{if(swapped||++osmFails<4)return;swapped=true;map.removeLayer(tiles);
+    const shade=isDark()?"Dark_Gray":"Light_Gray";
+    tiles=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_"+shade+"_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:ESRI_ATTR}).addTo(map);
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_"+shade+"_Reference/MapServer/tile/{z}/{y}/{x}",{maxZoom:16}).addTo(map);
+    watch(tiles)});
+  let loaded=false,noted=false;
+  function watch(layer){let failed=0;layer.on("tileload",()=>{loaded=true});
+  layer.on("tileerror",()=>{failed++;if(loaded||noted||failed!==3)return;noted=true;
     const n=document.createElement("div");n.className="tilenote";n.textContent="这个预览环境加载不了底图，先用区域名代替；在正式网址上会显示完整地图。";$("map").appendChild(n);
-    SUBURBS.forEach(([s,lat,lng])=>L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:"leaflet-div-icon",html:'<span class="sub-label">'+s+'</span>',iconSize:[0,0]})}).addTo(map));});
+    SUBURBS.forEach(([s,lat,lng])=>L.marker([lat,lng],{interactive:false,keyboard:false,icon:L.divIcon({className:"leaflet-div-icon",html:'<span class="sub-label">'+s+'</span>',iconSize:[0,0]})}).addTo(map));});}
+  tiles.on("tileload",()=>{loaded=true});
   const zc=()=>$("map").classList.toggle("far",map.getZoom()<15);
   map.on("zoomend",zc);zc();
 }
